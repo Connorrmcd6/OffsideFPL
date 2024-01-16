@@ -24,6 +24,31 @@ $primary-palette: (
  )
 );
 
+$secondary-palette: (
+ 50: #e9e9ff,
+ 100: #c7c8ff,
+ 200: #9fa4ff,
+ 300: #a2a5f5,
+ 400: #6766d7,
+ 500: #514aca,
+ 600: #4b42bf,
+ 700: #4337b3,
+ 800: #3c2ca6,
+ 900: #30168f,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800:  white,
+   900:  white,
+ )
+);
+
 
 $warning-palette: (
  50: #ffebf0,
