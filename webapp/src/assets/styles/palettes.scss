@@ -1,0 +1,51 @@
+
+$primary-palette: (
+ 50: #e9e9ff,
+ 100: #c7c8ff,
+ 200: #9fa4ff,
+ 300: #6e85be,
+ 400: #4a60ff,
+ 500: #0b40fe,
+ 600: #0436f2,
+ 700: #0029e5,
+ 800: #0018db,
+ 900: #0000cb,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: white,
+   500: white,
+   600: white,
+   700: white,
+   800:  white,
+   900:  white,
+ )
+);
+
+
+$warning-palette: (
+ 50: #ffebf0,
+ 100: #ffcdd7,
+ 200: #fb98a1,
+ 300: #f76d7c,
+ 400: #ff425b,
+ 500: #ff1d40,
+ 600: #fe0b40,
+ 700: #eb0039,
+ 800: #df0031,
+ 900: #d10023,
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: rgba(black, 0.87),
+   600: rgba(black, 0.87),
+   700: white,
+   800:  white,
+   900:  white,
+ )
+);
