@@ -15,7 +15,7 @@ footer {
 .copyright,
 .contact {
     flex: 1;
-    padding: 0 10px; /* Combined padding */
+    padding: 10px; /* Combined padding */
 }
 
 .copyright {
@@ -29,6 +29,7 @@ footer {
 p {
     color: black;
     font-size: 14px;
+    margin: 0; /* Remove default margin */
 }
 
 /* Media Query for Smaller Screens */
