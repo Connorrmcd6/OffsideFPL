@@ -40,21 +40,6 @@ header {
     max-width: 100%;
 }
 
-.hidden-landing-items {
-    display: none;
-}
-
-/* Menu styles */
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu-button {
-    margin-left: 20px;
-}
-
 /* Collapsed menu styles */
 @media screen and (max-width: 900px) {
     .menu-button,
