@@ -1,0 +1,68 @@
+/* General button styles */
+.button-row .mat-mdc-button-base,
+.collapsed-button-container button {
+    margin: 8px; /* Apply margin to buttons */
+}
+
+header {
+    margin-top: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure the header appears above other content */
+    background-color: white; /* Set your desired background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;
+}
+/* Landing styles */
+.landing-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure the landing appears above other content */
+}
+
+
+.max-width-content {
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.landing-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.hidden-landing-items {
+    display: none;
+}
+
+/* Menu styles */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-button {
+    margin-left: 20px;
+}
+
+/* Collapsed menu styles */
+@media screen and (max-width: 900px) {
+    .menu-button,
+    .button-row {
+        display: none;
+    }
+
+    .hidden-landing-items {
+        display: block;
+    }
+}
