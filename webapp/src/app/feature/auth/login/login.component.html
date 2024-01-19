@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-card-content">
+        <mat-card>
+            <nav>
+                <button  mat-icon-button colour="primary" (click)="goBack()">
+                  <mat-icon>arrow_back</mat-icon>
+                </button>
+            </nav>
+            <div class="logo-welcome-container">
+                <div class="logo-container">
+                    <img src="../../../../assets/svg/offsidefpl-logo-blue.svg" alt="Logo">
+                </div>
+            </div>
+            <mat-card-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" type="text">
+                    <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <button color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div class="button-row">
+                    <button mat-raised-button routerLink="/dashboard" color="primary">Login</button>
+                </div>
+            </mat-card-content>
+            <div class="bottom-content">
+                <span class="account-message">Don't have an account?</span>
+                <button mat-button color="primary" routerLink="/register">Register</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './feature/auth/auth.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule,
+    AuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
