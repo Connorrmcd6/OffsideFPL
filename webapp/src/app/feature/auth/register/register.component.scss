@@ -99,3 +99,16 @@ mat-card {
   width: 100%;
   justify-content: flex-start; /* Align buttons to the right */
 }
+
+  /* Styles for the logo image */
+  .logo-container img {
+    max-width: 150px; /* Adjust the maximum width of the logo */
+    height: auto;
+  }
+
+  .logo-welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px; /* Adjust spacing between logo and text */
+  }

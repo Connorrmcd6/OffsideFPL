@@ -12,14 +12,14 @@
                 </div>
             </div>
             <mat-card-content>
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" required>
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" type="text">
+                    <input matInput placeholder="Email" type="text" required>
                     <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <input matInput [type]="hide ? 'password' : 'text'" required>
                     <button color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
@@ -30,7 +30,7 @@
             </mat-card-content>
             <div class="bottom-content">
                 <span class="account-message">Don't have an account?</span>
-                <button mat-button color="primary" routerLink="/register">Register</button>
+                <button mat-button color="primary" routerLink="/register">Sign Up</button>
             </div>
             <div class="forgot-password">
                 <button mat-button color="primary" routerLink="/forgot-password">Forgot Password?</button>
