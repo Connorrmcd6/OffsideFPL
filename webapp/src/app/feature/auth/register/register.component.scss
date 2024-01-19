@@ -63,14 +63,14 @@ mat-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px; /* Adjust spacing between logo and text */
+    margin-bottom: 20px; /* Adjust spacing between logo and text */
   }
   
-
   .bottom-content {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
 }
 
 .login-message {
@@ -104,11 +104,4 @@ mat-card {
   .logo-container img {
     max-width: 150px; /* Adjust the maximum width of the logo */
     height: auto;
-  }
-
-  .logo-welcome-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px; /* Adjust spacing between logo and text */
   }

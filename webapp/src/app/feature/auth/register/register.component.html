@@ -19,6 +19,11 @@
               <input matInput placeholder="Email" type="text" required>
               <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
           </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Team ID (Optional)</mat-label>
+            <input matInput placeholder="Team ID (optional)" type="tel">
+            <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
           <mat-form-field color="primary" appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput [type]="hide1 ? 'password' : 'text'"  required>
