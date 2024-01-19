@@ -2,6 +2,7 @@
 .button-row .mat-mdc-button-base,
 .collapsed-button-container button {
     margin: 8px; /* Apply margin to buttons */
+    border-radius: 16px;
 }
 
 header {
@@ -21,6 +22,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000; /* Ensure the landing appears above other content */
+}
+
+.hidden-landing-items {
+    display: none;
 }
 
 
@@ -49,5 +54,10 @@ header {
 
     .hidden-landing-items {
         display: block;
+    }
+    /* Make the logo 50% smaller */
+    .logo {
+        max-width: 40%;
+        height: auto;
     }
 }
