@@ -16,4 +16,11 @@ export class ForgotPasswordComponent {
   goBack(): void {
     this.location.back();
   }
+
+  resendEmail() {
+    // Add any logic for resending email if needed
+    // For now, do nothing
+    console.log('Resending email...');
+  }
+
 }
