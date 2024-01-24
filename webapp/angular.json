@@ -73,19 +73,19 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-						"production": {
-							"browserTarget": "OffsideFPL:build:production"
+            "production": {
+              "buildTarget": "OffsideFPL:build:production"
 						},
-						"development": {
-							"browserTarget": "OffsideFPL:build:development"
+            "development": {
+              "buildTarget": "OffsideFPL:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "OffsideFPL:build"
+          "options": {
+            "buildTarget": "OffsideFPL:build"
 					}
 				},
 				"test": {
