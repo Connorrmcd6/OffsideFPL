@@ -1,9 +1,0 @@
-When adding new content follow these steps to save yourself hours of pain
-
-1. use `ng g m module-name` to generate a new module
-    a. cd into the new module directory
-    b. use `ng g c component-name` to generate a new component that uses the module
-
-2. Go to the app.module.ts file and make sure your new module is included in the imports 
-
-3. When using angular material place the import in the parent module of the component. eg for the login component the material imports are in the auth.module.ts file
