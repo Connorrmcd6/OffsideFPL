@@ -1,7 +1,7 @@
 {
   "name": "OffsideFPL",
   "short_name": "OffsideFPL",
-  "theme_color": "#1976d2",
+  "theme_color": "#0044fc",
   "background_color": "#fafafa",
   "display": "fullscreen",
   "scope": "./",

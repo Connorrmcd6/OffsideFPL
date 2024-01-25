@@ -142,3 +142,15 @@ input {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// see this --- https://dev.to/oncode/display-your-pwa-website-fullscreen-4776
+
+// apply this to top and bottom content
+.element {
+  height: env(safe-area-inset-top);
+  width: env(safe-area-inset-left);
+  margin: env(safe-area-inset-right);
+  // you can also use fallback values
+  padding: env(safe-area-inset-bottom, 20px);
+}
