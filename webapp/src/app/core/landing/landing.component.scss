@@ -4,6 +4,21 @@
     margin: 8px; /* Apply margin to buttons */
 }
 
+
+/* Styles for the logo container */
+.logo-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    margin-bottom: 0px; /* Adjust spacing between logo and form */
+  }
+  
+  /* Styles for the logo image */
+  .logo-container img {
+    max-width: 250px; /* Adjust the maximum width of the logo */
+    height: auto;
+  }
+
 header {
     margin-top: auto;
     position: sticky;
@@ -56,7 +71,8 @@ header {
     }
     /* Make the logo 50% smaller */
     .logo {
-        max-width: 40%;
+        max-width: 10%;
         height: auto;
     }
+
 }
