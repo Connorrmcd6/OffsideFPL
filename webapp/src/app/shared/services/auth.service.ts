@@ -66,7 +66,7 @@ export class AuthService {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate(['verify-email']);
       });
   }
   // Reset Forggot password
@@ -96,7 +96,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      teamID: user.teamID,
+      teamID: null,
       emailVerified: user.emailVerified,
     };
     return userRef.set(userData, {
@@ -107,7 +107,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['/']);
     });
   }
 }

@@ -1,0 +1,29 @@
+<header>
+    <div class="page-wrapper">
+        <mat-toolbar color="primary" class="navigation-toolbar">
+            <div class="max-width-content">
+                <div class="logo-container">
+                    <img class="logo" src="../../assets/svg/logo-white.svg" alt="Logo">
+                  </div>
+                <div class="button-row">
+                  <nav>
+                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
+                    <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
+                  </nav>
+                </div>
+            </div>
+
+            <div class="hidden-landing-items">
+              <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #collapsedMenu="matMenu">
+                <div class="collapsed-button-container">
+                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
+                    <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
+                </div>
+            </mat-menu>
+            </div>
+        </mat-toolbar>
+    </div>
+</header>

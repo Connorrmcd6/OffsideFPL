@@ -28,7 +28,7 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;
 }
 /* Landing styles */
-.landing-toolbar {
+.navigation-toolbar {
     display: flex;
     justify-content: space-between;
     margin: auto;
@@ -51,7 +51,7 @@ header {
     margin: auto;
 }
 
-.landing-wrapper {
+.page-wrapper {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -75,13 +75,4 @@ header {
         height: auto;
     }
 
-}
-
-.body-content {
-    height: 100px;
-    background-color: #ff1d40;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
