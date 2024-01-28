@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ]
 })
 export class HomeModule { }
