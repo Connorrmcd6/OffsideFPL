@@ -7,7 +7,7 @@
                   </div>
                 <div class="button-row">
                   <nav>
-                    <button mat-raised-button routerLink="/" color="primary">Sign Out</button>
+                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
                     <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
                   </nav>
                 </div>
@@ -19,7 +19,7 @@
             </button>
             <mat-menu #collapsedMenu="matMenu">
                 <div class="collapsed-button-container">
-                    <button mat-raised-button routerLink="/" color="primary">Sign Out</button>
+                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
                     <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
                 </div>
             </mat-menu>
