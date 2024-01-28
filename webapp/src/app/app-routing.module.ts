@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './feature/auth/forgot-password/forgot-p
 import { VerifyEmailComponent } from './feature/auth/verify-email/verify-email.component';
 import { HomeDashboardComponent } from './feature/home/home-dashboard/home-dashboard.component';
 import { ProfileComponent } from './feature/home/profile/profile.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'home', component: HomeDashboardComponent },
+  { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent }
 ];
 
