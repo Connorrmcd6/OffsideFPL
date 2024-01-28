@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {FormBuilder, Validators} from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   hide1 = true;
   hide2 = true;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    public authService: AuthService
   ) {}
 
   goBack(): void {
@@ -32,4 +34,6 @@ export class RegisterComponent {
     thirdCtrl: ['', Validators.required],
   });
   isLinear = false;
+
+  ngOnInit() { }
 }

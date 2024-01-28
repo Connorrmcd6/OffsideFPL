@@ -16,14 +16,9 @@
         <mat-card-content>
           <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput placeholder="Email" type="text" required>
+              <input matInput placeholder="Email" type="text" #userEmailReg required>
               <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
           </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Team ID (Optional)</mat-label>
-            <input matInput placeholder="Team ID (optional)" type="tel">
-            <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
-        </mat-form-field>
           <mat-form-field color="primary" appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput [type]="hide1 ? 'password' : 'text'"  required>
@@ -33,13 +28,13 @@
           </mat-form-field>
           <mat-form-field color="primary" appearance="outline">
             <mat-label>Confirm Password</mat-label>
-            <input matInput [type]="hide2 ? 'password' : 'text'" required>
+            <input matInput [type]="hide2 ? 'password' : 'text'" #userPasswordConfirm required>
             <button color="primary" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2" >
               <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
           <div class="button-row">
-            <button mat-raised-button routerLink="/dashboard" color="primary">Sign Up</button>
+            <button mat-raised-button (click)="authService.SignUp(userEmailReg.value, userPasswordConfirm.value)" color="primary">Sign Up</button>
         </div>
       </mat-card-content>
     <div class="bottom-content">
