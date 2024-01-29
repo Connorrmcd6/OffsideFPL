@@ -10,7 +10,8 @@ import { ProfileComponent } from './feature/home/profile/profile.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -18,6 +19,9 @@ const routes: Routes = [
   { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
+
+export default routes;
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
