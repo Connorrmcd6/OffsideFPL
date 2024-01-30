@@ -1,29 +1,54 @@
 <header>
-    <div class="page-wrapper">
-        <mat-toolbar color="primary" class="navigation-toolbar">
-            <div class="max-width-content">
-                <div class="logo-container">
-                    <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
-                  </div>
-                <div class="button-row">
-                  <nav>
-                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
-                    <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
-                  </nav>
-                </div>
-            </div>
-
-            <div class="hidden-landing-items">
-              <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
-                <mat-icon>menu</mat-icon>
+  <div class="page-wrapper">
+    <mat-toolbar color="primary" class="navigation-toolbar">
+      <div class="max-width-content">
+        <div class="logo-container">
+          <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
+        </div>
+        <nav>
+          <button mat-icon-button [matMenuTriggerFor]="profile">
+            <mat-icon>perm_identity</mat-icon>
+          </button>
+          <mat-menu #profile="matMenu">
+            <!-- Edit Team ID Menu Item -->
+            <button mat-menu-item (click)="showTeamIdCard()">
+              <mat-icon>edit</mat-icon>
+              Edit Team ID
             </button>
-            <mat-menu #collapsedMenu="matMenu">
-                <div class="collapsed-button-container">
-                    <button mat-raised-button (click)="authService.SignOut()" color="accent">Sign Out</button>
-                    <button mat-raised-button routerLink="/profile" color="accent">Profile</button>
-                </div>
-            </mat-menu>
+
+            <button mat-menu-item>
+              <mat-icon>people_outline</mat-icon>
+              Create League
+            </button>
+
+            <button mat-menu-item>
+              <mat-icon>share</mat-icon>
+              Invite Friends
+            </button>
+
+            <!-- Sign Out Button -->
+            <div class="collapsed-button-container">
+              <button mat-raised-button (click)="authService.SignOut()" color="primary">Sign Out</button>
             </div>
-        </mat-toolbar>
-    </div>
+          </mat-menu>
+        </nav>
+      </div>
+    </mat-toolbar>
+
+    <!-- Card for Edit Team ID -->
+    <mat-card *ngIf="showCard" class="edit-team-card">
+      <!-- Your card content goes here -->
+      <mat-card-content>
+        <p>Edit Team ID content goes here...</p>
+        <mat-form-field  *ngIf="authService.userData as user" appearance="outline" required>
+                    <mat-label>Email</mat-label>
+                    <input matInput [placeholder]="user.teamID ? user.teamID : 'Team ID'" type="text" #teamID>
+                    <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
+                </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="hideTeamIdCard()">Hide Card</button> <!-- will later become save button -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </header>

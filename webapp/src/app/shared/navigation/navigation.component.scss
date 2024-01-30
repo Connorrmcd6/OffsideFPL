@@ -4,29 +4,35 @@
     margin: 8px; /* Apply margin to buttons */
 }
 
+.collapsed-button-container {
+    display: flex;
+    justify-content: center;
+}
 
 /* Styles for the logo container */
 .logo-container {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center items horizontally */
-    margin-bottom: 0px; /* Adjust spacing between logo and form */
-  }
-  
-  /* Styles for the logo image */
-  .logo-container img {
+    margin-bottom: 0; /* Adjust spacing between logo and form */
+}
+
+/* Styles for the logo image */
+.logo-container img {
     max-width: 250px; /* Adjust the maximum width of the logo */
     height: auto;
-  }
+}
 
+/* Header styles */
 header {
     margin-top: auto;
     position: sticky;
     top: 0;
     z-index: 1000; /* Ensure the header appears above other content */
     background-color: white; /* Set your desired background color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 /* Landing styles */
 .navigation-toolbar {
     display: flex;
@@ -41,7 +47,6 @@ header {
 .hidden-landing-items {
     display: none;
 }
-
 
 .max-width-content {
     display: flex;
@@ -61,7 +66,7 @@ header {
 
 /* Collapsed menu styles */
 @media screen and (max-width: 900px) {
-    .menu-button,
+    /* .menu-button,
     .button-row {
         display: none;
     }
@@ -69,10 +74,17 @@ header {
     .hidden-landing-items {
         display: block;
     }
+
     /* Make the logo 50% smaller */
     .logo {
         max-width: 10%;
         height: auto;
     }
 
+    /* Center the Sign Out button */
+    .collapsed-button-container {
+        display: flex;
+        justify-content: center;
+    }
 }
+

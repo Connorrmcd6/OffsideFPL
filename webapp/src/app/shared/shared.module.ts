@@ -7,7 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavigationComponent } from './navigation/navigation.component';
 
 
@@ -19,7 +21,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatIconModule,
     MatToolbarModule,
     RouterModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule
   ],
   exports: [
     NavigationComponent

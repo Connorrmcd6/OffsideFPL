@@ -11,5 +11,13 @@ export class NavigationComponent implements OnInit{
     public authService: AuthService
   ){}
 
+    showCard: boolean = false;
+
+  showTeamIdCard() {
+    this.showCard = true;
+  }
+  hideTeamIdCard() {
+    this.showCard = false; // Set the variable to false or perform any necessary logic
+  }
   ngOnInit() { }
 }
