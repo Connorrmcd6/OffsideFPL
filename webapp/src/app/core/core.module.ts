@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
+
 
 
 // Angular Material imports
@@ -11,18 +11,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 
 
-
-
-
-
+import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
 @NgModule({
   declarations: [
     FooterComponent,
-    LandingComponent
+    LandingComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +32,8 @@ import { LandingComponent } from './landing/landing.component';
     MatMenuModule
   ],
   exports: [
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ]
 })
 export class CoreModule { }

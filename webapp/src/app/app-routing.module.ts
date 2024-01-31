@@ -12,10 +12,10 @@ import { AuthGuard } from './shared/guard/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'login', component: LoginComponent, data: { hideHeader: true } },
+  { path: 'register', component: RegisterComponent, data: { hideHeader: true } },
+  { path: 'forgot-password', component: ForgotPasswordComponent, data: { hideHeader: true } },
+  { path: 'verify-email', component: VerifyEmailComponent, data: { hideHeader: true } },
   { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
