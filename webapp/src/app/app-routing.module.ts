@@ -6,7 +6,6 @@ import { RegisterComponent } from './feature/auth/register/register.component';
 import { ForgotPasswordComponent } from './feature/auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './feature/auth/verify-email/verify-email.component';
 import { HomeDashboardComponent } from './feature/home/home-dashboard/home-dashboard.component';
-import { ProfileComponent } from './feature/home/profile/profile.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent, data: { hideHeader: true } },
   { path: 'verify-email', component: VerifyEmailComponent, data: { hideHeader: true } },
   { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 export default routes;

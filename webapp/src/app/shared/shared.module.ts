@@ -10,11 +10,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
-  declarations: [NavigationComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -26,7 +25,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatFormFieldModule
   ],
   exports: [
-    NavigationComponent
+    
   ]
 })
 export class SharedModule { }
