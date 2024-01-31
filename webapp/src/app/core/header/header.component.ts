@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -11,7 +12,10 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   showHeader: boolean = true;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.router.events.pipe(

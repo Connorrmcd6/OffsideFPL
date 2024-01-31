@@ -1,3 +1,69 @@
 <div class="app-header" *ngIf="showHeader">
-    <p>header works!</p>
+    <mat-toolbar color="primary" class="toolbar">
+        <div class="unauthenticated-header" *ngIf="authService.userData === null">
+            <div class="max-width-container">
+                <div class="logo-container">
+                    <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
+                </div>
+                <div class="expanded-buttons">
+                    <nav>
+                    <button mat-raised-button routerLink="/login" color="accent">Login</button>
+                    <button mat-raised-button routerLink="/register" color="accent">Register</button>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="collapsed-content">
+                <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
+                <mat-icon>menu</mat-icon>
+                </button>
+                <mat-menu #collapsedMenu="matMenu">
+                <div class="collapsed-buttons">
+                    <button mat-raised-button routerLink="/login" color="primary">Login</button>
+                    <button mat-raised-button routerLink="/register" color="accent">Register</button>
+                </div>
+                </mat-menu>
+            </div>
+        </div>
+
+        <div class="authenticated-header" *ngIf="authService.userData !== null">
+            <div class="max-width-container">
+
+                <div class="logo-container">
+                    <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
+                </div>
+                <nav>
+
+                    <button mat-icon-button [matMenuTriggerFor]="profile">
+                      <mat-icon>perm_identity</mat-icon>
+                    </button>
+
+                    <mat-menu #profile="matMenu">
+                      <!-- Edit Team ID Menu Item -->
+                      <button mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        Edit Team ID
+                      </button>
+          
+                      <button mat-menu-item>
+                        <mat-icon>people_outline</mat-icon>
+                        Create League
+                      </button>
+          
+                      <button mat-menu-item>
+                        <mat-icon>share</mat-icon>
+                        Invite Friends
+                      </button>
+          
+                      <!-- Sign Out Button -->
+                      <div class="signout-container">
+                        <button mat-raised-button (click)="authService.SignOut()" color="primary">Sign Out</button>
+                      </div>
+
+                    </mat-menu>
+                  </nav>
+            </div>
+        </div>
+
+    </mat-toolbar>
 </div>
