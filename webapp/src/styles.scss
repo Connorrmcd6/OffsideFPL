@@ -140,8 +140,26 @@ input {
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media (min-width: 600px) {
+  .body-content {
+    margin-top: 64px;
+  }
+}
+
+@media (max-width: 599px) {
+  .body-content {
+    margin-top: 56px;
+  }
+}
 
 
 // see this --- https://dev.to/oncode/display-your-pwa-website-fullscreen-4776
