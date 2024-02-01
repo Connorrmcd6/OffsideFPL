@@ -6,15 +6,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
+import { HeaderActionsModule } from '../feature/header-actions/header-actions.module';
 
 import { FooterComponent } from './footer/footer.component';
-import { LandingComponent } from '../feature/screens/landing/landing.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    LandingComponent,
     HeaderComponent
   ],
   imports: [
@@ -24,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     MatToolbarModule,
     RouterModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HeaderActionsModule
   ],
   exports: [
     FooterComponent,
