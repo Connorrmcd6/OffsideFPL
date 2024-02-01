@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Router,
-  UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard {
-  constructor(public authService: AuthService, public router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | UrlTree | boolean {
-    if (this.authService.isLoggedIn !== true) {
-      this.router.navigate(['landing']);
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!this.authService.isLoggedIn) {
+      return this.router.createUrlTree(['landing']);
     }
     return true;
   }

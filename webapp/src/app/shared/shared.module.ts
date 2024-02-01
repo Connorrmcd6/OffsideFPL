@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-// Angular Material imports
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,9 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -25,7 +20,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule
   ],
   exports: [
-    
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    RouterModule,
+    MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule
   ]
 })
 export class SharedModule { }
