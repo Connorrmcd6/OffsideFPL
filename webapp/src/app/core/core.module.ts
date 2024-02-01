@@ -13,7 +13,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 
 
 import { FooterComponent } from './footer/footer.component';
-import { LandingComponent } from './landing/landing.component';
+import { LandingComponent } from '../feature/landing/landing.component';
 import { HeaderComponent } from './header/header.component';
 
 
@@ -30,8 +30,7 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatToolbarModule,
     RouterModule,
-    MatMenuModule,
-    MatBadgeModule
+    MatMenuModule
   ],
   exports: [
     FooterComponent,
