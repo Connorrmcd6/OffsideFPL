@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
 
+  goBack(): void {
+    this.location.back();
+  }
 }

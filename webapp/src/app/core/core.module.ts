@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { FooterComponent } from './footer/footer.component';
-import { LandingComponent } from '../feature/landing/landing.component';
+import { LandingComponent } from '../feature/screens/landing/landing.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
