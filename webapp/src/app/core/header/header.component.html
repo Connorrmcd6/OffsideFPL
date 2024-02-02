@@ -7,28 +7,6 @@
           <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
         </div>
   
-        <!-- Unauthenticated Header -->
-        <div *ngIf="!authService.userData; else authenticatedHeader">
-          <div class="expanded-buttons">
-            <nav>
-              <button mat-raised-button [routerLink]="'/login'" color="accent">Login</button>
-              <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-            </nav>
-          </div>
-  
-          <div class="collapsed-content">
-            <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
-              <mat-icon>menu</mat-icon>
-            </button>
-            <mat-menu #collapsedMenu="matMenu">
-              <div class="collapsed-buttons">
-                <button mat-raised-button [routerLink]="'/login'" color="primary">Login</button>
-                <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-              </div>
-            </mat-menu>
-          </div>
-        </div>
-  
         <!-- Authenticated Header -->
         <ng-template #authenticatedHeader>
           <nav>
