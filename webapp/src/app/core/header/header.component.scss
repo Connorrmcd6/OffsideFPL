@@ -56,8 +56,7 @@
 .actions-container {
   display: flex;
   justify-content: space-between; /* or any other value depending on your desired spacing */
-  align-items: center;
-  padding: 4px /* or any other value depending on your desired alignment */
+  align-items: center; /* or any other value depending on your desired alignment */
 }
 
 /* Optionally, you can add some styling to the child elements */

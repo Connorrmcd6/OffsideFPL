@@ -6,7 +6,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { MatBadgeModule } from '@angular/material/badge';
-import { HeaderActionsModule } from '../feature/header-actions/header-actions.module';
 
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,8 +22,7 @@ import { HeaderComponent } from './header/header.component';
     MatToolbarModule,
     RouterModule,
     MatMenuModule,
-    MatBadgeModule,
-    HeaderActionsModule
+    MatBadgeModule
   ],
   exports: [
     FooterComponent,

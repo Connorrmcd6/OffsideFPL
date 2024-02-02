@@ -9,7 +9,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './feature/auth/auth.module';
-import { HeaderActionsModule } from './feature/header-actions/header-actions.module';
 import { ScreensModule } from './feature/screens/screens.module';
 import { environment } from 'src/environments/environment.development';
 
@@ -23,7 +22,6 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     CoreModule,
     AuthModule,
-    HeaderActionsModule,
     ScreensModule,
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
