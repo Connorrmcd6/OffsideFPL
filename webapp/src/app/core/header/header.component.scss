@@ -53,6 +53,19 @@
   justify-content: center;
 }
 
+.actions-container {
+  display: flex;
+  justify-content: space-between; /* or any other value depending on your desired spacing */
+  align-items: center;
+  padding: 4px /* or any other value depending on your desired alignment */
+}
+
+/* Optionally, you can add some styling to the child elements */
+.actions-container app-profile,
+.actions-container app-notifications {
+  margin: 0 10px; /* Add margin for spacing between the child elements */
+}
+
   /* General button styles */
 .expanded-buttons .mat-mdc-button-base,
 .collapsed-buttons button {
@@ -74,5 +87,10 @@
         max-width: 10%;
         height: auto;
     }
+
+  .actions-container app-profile,
+  .actions-container app-notifications {
+  margin: 0 8px; /* Add margin for spacing between the child elements */
+}
 
 }
