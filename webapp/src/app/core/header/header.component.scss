@@ -1,95 +1,103 @@
+/* Header */
 .app-header {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 100%;
-    max-width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
+/* Container for Max Width */
 .max-width-container {
-    display: flex;
-    width: 100%;
-    max-width: 1280px;
-    justify-content: space-between;
-    margin: auto;
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  justify-content: space-between;
+  margin: auto;
 }
 
+/* Toolbar Styles */
 .toolbar {
-    flex: 1;
-  }
-  
-  .unauthenticated-header,
-  .authenticated-header {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-/* Styles for the logo container */
-.logo-container {
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    margin-bottom: 0px; /* Adjust spacing between logo and form */
-    cursor: pointer;
-  }
-  
-  /* Styles for the logo image */
-  .logo-container img {
-    max-width: 250px; /* Adjust the maximum width of the logo */
-    height: auto;
-  }
-
-  .collapsed-content {
-    display: none;
+  flex: 1;
 }
 
+/* Header Sections for Authenticated and Unauthenticated */
+.unauthenticated-header,
+.authenticated-header {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Container Styles */
+.logo-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  margin-bottom: 0; /* Adjust spacing between logo and form */
+  cursor: pointer;
+}
+
+/* Logo Image Styles */
+.logo-container img {
+  max-width: 250px; /* Adjust the maximum width of the logo */
+  height: auto;
+}
+
+/* Collapsed Content Styles */
+.collapsed-content {
+  display: none;
+}
+
+/* Signout Container Styles */
 .signout-container {
   display: flex;
   justify-content: center;
 }
 
+/* Actions Container Styles */
 .actions-container {
   display: flex;
   justify-content: space-between; /* or any other value depending on your desired spacing */
   align-items: center; /* or any other value depending on your desired alignment */
 }
 
-/* Optionally, you can add some styling to the child elements */
+/* Optional Styling for Child Elements */
 .actions-container app-profile,
 .actions-container app-notifications {
   margin: 0 10px; /* Add margin for spacing between the child elements */
 }
 
-  /* General button styles */
+/* General Button Styles */
 .expanded-buttons .mat-mdc-button-base,
 .collapsed-buttons button {
-    margin: 8px; /* Apply margin to buttons */
+  margin: 8px; /* Apply margin to buttons */
 }
 
-/* Collapsed menu styles */
+/* Collapsed Menu Styles */
 @media screen and (max-width: 900px) {
-    .menu-button,
-    .expanded-buttons {
-        display: none;
-    }
+  .menu-button,
+  .expanded-buttons {
+    display: none;
+  }
 
-    .collapsed-content {
-        display: block;
-    }
-    /* Make the logo 50% smaller */
-    .logo {
-        max-width: 10%;
-        height: auto;
-    }
+  .collapsed-content {
+    display: block;
+  }
 
+  /* Make the logo 50% smaller */
+  .logo {
+    max-width: 10%;
+    height: auto;
+  }
+
+  /* Margin for Child Elements in Collapsed Mode */
   .actions-container app-profile,
   .actions-container app-notifications {
-  margin: 0 8px; /* Add margin for spacing between the child elements */
-}
-
+    margin: 0 8px; /* Add margin for spacing between the child elements */
+  }
 }

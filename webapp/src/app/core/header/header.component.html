@@ -1,65 +1,73 @@
 <div class="app-header" *ngIf="showHeader">
-  <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar color="primary" class="toolbar">
       <div class="max-width-container">
-
-          <div class="logo-container">
-              <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
+  
+        <!-- Logo -->
+        <div class="logo-container">
+          <img class="logo" src="../../assets/images/logo-white.svg" alt="Logo">
+        </div>
+  
+        <!-- Unauthenticated Header -->
+        <div *ngIf="!authService.userData; else authenticatedHeader">
+          <div class="expanded-buttons">
+            <nav>
+              <button mat-raised-button [routerLink]="'/login'" color="accent">Login</button>
+              <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
+            </nav>
           </div>
-
-          <div *ngIf="!authService.userData; else authenticatedHeader">
-              <div class="expanded-buttons">
-                  <nav>
-                      <button mat-raised-button [routerLink]="'/login'" color="accent">Login</button>
-                      <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-                  </nav>
+  
+          <div class="collapsed-content">
+            <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #collapsedMenu="matMenu">
+              <div class="collapsed-buttons">
+                <button mat-raised-button [routerLink]="'/login'" color="primary">Login</button>
+                <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
               </div>
-
-              <div class="collapsed-content">
-                  <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
-                      <mat-icon>menu</mat-icon>
+            </mat-menu>
+          </div>
+        </div>
+  
+        <!-- Authenticated Header -->
+        <ng-template #authenticatedHeader>
+          <nav>
+            <div class="actions-container">
+  
+              <!-- Profile Menu -->
+              <div class="component-container">
+                <button mat-icon-button [matMenuTriggerFor]="profile">
+                  <mat-icon>perm_identity</mat-icon>
+                </button>
+                <mat-menu #profile="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>edit</mat-icon>
+                    Edit Team ID
                   </button>
-                  <mat-menu #collapsedMenu="matMenu">
-                      <div class="collapsed-buttons">
-                          <button mat-raised-button [routerLink]="'/login'" color="primary">Login</button>
-                          <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-                      </div>
-                  </mat-menu>
+                  <button mat-menu-item>
+                    <mat-icon>people_outline</mat-icon>
+                    Create League
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>share</mat-icon>
+                    Invite Friends
+                  </button>
+                  <div class="signout-container">
+                    <button mat-raised-button (click)="authService.SignOut()" color="primary">Sign Out</button>
+                  </div>
+                </mat-menu>
               </div>
-          </div>
-
-          <ng-template #authenticatedHeader>
-              <nav>
-                <div class="actions-container">
-                    <div class="component-container">
-                        <button mat-icon-button [matMenuTriggerFor]="profile">
-                            <mat-icon>perm_identity</mat-icon>
-                        </button>
-                        <mat-menu #profile="matMenu">
-                            <button mat-menu-item>
-                                <mat-icon>edit</mat-icon>
-                                Edit Team ID
-                            </button>
-                            <button mat-menu-item>
-                                <mat-icon>people_outline</mat-icon>
-                                Create League
-                            </button>
-                            <button mat-menu-item>
-                                <mat-icon>share</mat-icon>
-                                Invite Friends
-                            </button>
-                            <div class="signout-container">
-                                <button mat-raised-button (click)="authService.SignOut()" color="primary">Sign Out</button>
-                            </div>
-                        </mat-menu>
-                    </div>
-                
-                    <button mat-icon-button>
-                        <mat-icon matBadge="2" matBadgeColor="warn">notifications_none</mat-icon>
-                    </button>
-                </div>
-              </nav>
-          </ng-template>
-
+  
+              <!-- Notifications Icon -->
+              <button mat-icon-button>
+                <mat-icon matBadge="2" matBadgeColor="warn">notifications_none</mat-icon>
+              </button>
+  
+            </div>
+          </nav>
+        </ng-template>
+  
       </div>
-  </mat-toolbar>
-</div>
+    </mat-toolbar>
+  </div>
+  
