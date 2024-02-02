@@ -28,7 +28,7 @@
           </mat-form-field>
           <mat-form-field color="primary" appearance="outline">
             <mat-label>Confirm Password</mat-label>
-            <input matInput [type]="hide2 ? 'password' : 'text'" #userPasswordConfirm required>
+            <input matInput [type]="hide2 ? 'password' : 'text'" #userPasswordConfirm required (keyup.enter)="authService.SignUp(userEmailReg.value, userPasswordConfirm.value)">
             <button color="primary" mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2" >
               <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
