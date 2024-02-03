@@ -1,36 +1,57 @@
-.body-content {
-    height: 50px;
-    background-color: #979797;
-    color: white;
+/* Container for Max Width */
+.max-width-container {
     display: flex;
-    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: space-between;
+    margin: auto;
     justify-content: center;
+  }
+
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100vh;
 }
 
-
-.item-1 {
-    height: 100px;
-    background-color: #c2c8fe;
-    color: white;
+.profile-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
 }
 
-.item-2 {
-    height: 200px;
-    background-color: #0001c0;
-    color: white;
+.league-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
 }
 
-.item-3 {
-    height: 400px;
-    background-color: #ff1d40;
-    color: white;
+.explore-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
+}
+
+.card-header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    width:100%;
+    justify-content: space-between;
+}
+
+.card-header-content span {
+    font-weight: bold;
+    color: blue;
+}
+
+.mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
