@@ -3,46 +3,43 @@
     display: flex;
     width: 100%;
     max-width: 1280px;
-    justify-content: space-between;
     margin: auto;
     justify-content: center;
-  }
-
+    height: calc(100vh - 64px);
+}
 
 .card-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 50%;
-    height: 100vh;
 }
 
-.profile-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 25vh;
-}
-
-.league-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 25vh;
-}
-
+.profile-card,
+.league-card,
 .explore-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 10px; /* Applying equal margin on all sides */
+}
+
+.profile-card {
     height: 25vh;
+}
+
+.league-card {
+    height: 35vh;
+}
+
+.explore-card {
+    height: 30vh;
 }
 
 .card-header-content {
     display: flex;
     align-items: center;
-    width:100%;
     justify-content: space-between;
+    width: 100%; /* Full width */
 }
 
 .card-header-content span {
@@ -54,4 +51,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+@media (max-width: 599px) {
+    .max-width-container {
+        height: calc(100vh - 56px);
+    }
+
+    .card-container {
+        width: 100%;
+    }
 }
