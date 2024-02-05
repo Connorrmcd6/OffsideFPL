@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Location } from '@angular/common';
 export class HomeComponent {
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public authService: AuthService
   ) {}
 
   goBack(): void {

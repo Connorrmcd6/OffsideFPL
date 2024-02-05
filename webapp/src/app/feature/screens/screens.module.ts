@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     RouterModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ]
 })
 export class ScreensModule { }
