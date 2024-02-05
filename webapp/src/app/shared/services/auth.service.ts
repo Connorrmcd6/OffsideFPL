@@ -87,8 +87,12 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      teamID: null,
+      // teamID: null, <-- change to this
+      teamID: 247866,
+      // managerName: null, <-- change to this
+      managerName: "Connor McDonald",  
+      // teamName: null, <-- change to this
+      teamName: "AllHitsNoMisses",
       emailVerified: user.emailVerified,
     };
     return userRef.set(userData, { merge: true });

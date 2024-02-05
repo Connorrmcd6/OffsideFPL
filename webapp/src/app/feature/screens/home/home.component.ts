@@ -16,6 +16,10 @@ export class HomeComponent {
     public authService: AuthService
   ) {}
 
+  managerName: string = "";
+  teamName: string = "";
+  teamID: number | null = null;
+
   goBack(): void {
     this.location.back();
   }

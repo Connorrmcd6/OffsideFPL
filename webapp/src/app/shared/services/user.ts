@@ -1,7 +1,8 @@
 export interface User {
     uid: string;
     email: string;
-    displayName: string;
-    teamID: number | null;
     emailVerified: boolean;
+    managerName: string | null;
+    teamName: string | null;
+    teamID: number | null;
  }
