@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../services/user';
+import { User } from './auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -87,12 +87,6 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      // teamID: null, <-- change to this
-      teamID: 247866,
-      // managerName: null, <-- change to this
-      managerName: "Connor McDonald",  
-      // teamName: null, <-- change to this
-      teamName: "AllHitsNoMisses",
       emailVerified: user.emailVerified,
     };
     return userRef.set(userData, { merge: true });
