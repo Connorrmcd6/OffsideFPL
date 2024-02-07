@@ -6,6 +6,7 @@ import { RegisterComponent } from './feature/auth/register/register.component';
 import { ForgotPasswordComponent } from './feature/auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './feature/auth/verify-email/verify-email.component';
 import { HomeComponent } from './feature/screens/home/home.component';
+import { FplDeatilsInputDialogComponent } from './feature/modals/fpl-deatils-input-dialog/fpl-deatils-input-dialog.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent, data: { hideHeader: true } },
   { path: 'verify-email', component: VerifyEmailComponent, data: { hideHeader: true } },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'details', component: FplDeatilsInputDialogComponent },
 ];
 
 @NgModule({

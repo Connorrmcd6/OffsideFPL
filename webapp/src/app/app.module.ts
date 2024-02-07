@@ -13,6 +13,7 @@ import { ScreensModule } from './feature/screens/screens.module';
 import { environment } from 'src/environments/environment.development';
 
 import { AppComponent } from './app.component';
+import { ModalsModule } from './feature/modals/modals.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     CoreModule,
     AuthModule,
+    ModalsModule,
     ScreensModule,
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
