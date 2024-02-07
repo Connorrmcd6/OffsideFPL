@@ -15,7 +15,7 @@
         </div>
 
         <div class="collapsed-content">
-          <button mat-icon-button [matMenuTriggerFor]="collapsedMenu">
+          <button mat-icon-button [matMenuTriggerFor]="collapsedMenu"> 
             <mat-icon>menu</mat-icon>
           </button>
           <mat-menu #collapsedMenu="matMenu">
@@ -30,30 +30,6 @@
       <ng-template #authenticatedHeader>
         <nav>
           <div class="actions-container">
-            
-            <!-- <div class="component-container">
-              <button mat-icon-button [matMenuTriggerFor]="profile">
-                <mat-icon>perm_identity</mat-icon>
-              </button>
-              <mat-menu #profile="matMenu">
-                <button mat-menu-item>
-                  <mat-icon>edit</mat-icon>
-                  Edit Team ID
-                </button>
-                <button mat-menu-item>
-                  <mat-icon>people_outline</mat-icon>
-                  Create League
-                </button>
-                <button mat-menu-item>
-                  <mat-icon>share</mat-icon>
-                  Invite Friends
-                </button>
-                <div class="signout-container">
-                  <button mat-raised-button (click)="authService.SignOut()" color="primary">Sign Out</button>
-                </div>
-              </mat-menu>
-            </div> -->
-
             <button mat-icon-button>
               <mat-icon matBadge="2" matBadgeColor="warn">notifications_none</mat-icon>
             </button>

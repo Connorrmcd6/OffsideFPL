@@ -9,9 +9,9 @@
                             <mat-icon>settings</mat-icon>
                         </button>
                         <mat-menu #profileSettings="matMenu">
-                            <button mat-menu-item>
+                            <button mat-menu-item (click)="openDetailsDialog()">
                               <mat-icon>edit</mat-icon>
-                              Edit Team ID
+                              Edit FPL Details
                             </button>
                             
                             <button mat-menu-item>

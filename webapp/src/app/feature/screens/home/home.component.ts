@@ -13,10 +13,15 @@ export class HomeComponent {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    public authService: AuthService
+    public authService: AuthService,
   ) {}
+
 
   goBack(): void {
     this.location.back();
+  }
+
+  openDetailsDialog() {
+    console.log("Button clicked!");
   }
 }
