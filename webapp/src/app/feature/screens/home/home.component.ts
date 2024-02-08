@@ -26,7 +26,7 @@ export class HomeComponent {
 
   openTeamIdDialog() {
     this.matDialog.open(FplDeatilsInputDialogComponent, {
-      width:'300px'
+      width:'350px'
     })
   }
 }

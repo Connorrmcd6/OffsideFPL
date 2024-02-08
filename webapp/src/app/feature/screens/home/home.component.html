@@ -10,20 +10,20 @@
                         </button>
                         <mat-menu #profileSettings="matMenu">
                             <mat-dialog-actions>
-                                <button mat-menu-item (click)="openTeamIdDialog()">
-                                    <mat-icon>edit</mat-icon>
+                                <button  mat-menu-item (click)="openTeamIdDialog()">
+                                    <mat-icon style="color: rgba(0, 0, 0, 0.54);">edit</mat-icon>
                                     Edit FPL Details
                                   </button>
                             </mat-dialog-actions>
 
                             
                             <button mat-menu-item>
-                              <mat-icon>share</mat-icon>
+                              <mat-icon style="color: rgba(0, 0, 0, 0.54);">share</mat-icon>
                               Invite Friends
                             </button>
 
                             <button mat-menu-item>
-                                <mat-icon>help_outline</mat-icon>
+                                <mat-icon style="color: rgba(0, 0, 0, 0.54);">help_outline</mat-icon>
                                 Help
                               </button>
 
@@ -45,7 +45,6 @@
             <mat-card class="league-card">
                 <mat-card-content>
                     <p>League card</p>
-                    <button mat-raised-button routerLink="/details" color="primary">details dialog</button>
                 </mat-card-content>
             </mat-card>
 

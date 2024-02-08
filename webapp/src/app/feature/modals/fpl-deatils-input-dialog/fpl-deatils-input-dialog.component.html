@@ -22,9 +22,6 @@
       <!-- Help section -->
       <div class="help-row">
         <mat-accordion aria-label="Help">
-          <mat-expansion-panel hideToggle>
-            <p>This is the primary content of the panel.</p>
-          </mat-expansion-panel>
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
               <mat-panel-description>
@@ -32,10 +29,26 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <ol class="styled-list" aria-label="Instructions to find Team ID">
-              <li>Login to your FPL account at <a href="https://fantasy.premierleague.com">https://fantasy.premierleague.com</a> on a browser of your choice.</li>
+              <li>Login to your FPL account <a href="https://fantasy.premierleague.com">here</a> on a browser of your choice.</li>
               <li>Click on the "Pick Team" tab near the top of the page.</li>
               <li>Click on "Gameweek History". This will be to the right of your screen on PC and towards the bottom of the screen on mobile.</li>
               <li>Once that page loads, check the URL in your browser address bar. The number in the URL is your <strong>Team ID.</strong></li>
+            </ol>
+          </mat-expansion-panel>
+        </mat-accordion> 
+      </div>
+
+      <div class="help-row">
+        <mat-accordion aria-label="Help">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                My team wasn't found?
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ol class="styled-list" aria-label="Instructions to find Team ID">
+              <li>Make sure you have registered and created a team on the <a href="https://fantasy.premierleague.com">FantasyPL website</a> or app</li>
+              <li>Make sure you typed your Team ID correctly, typically it will be 4+ digits long </li>
             </ol>
           </mat-expansion-panel>
         </mat-accordion> 
