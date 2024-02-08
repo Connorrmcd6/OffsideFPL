@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: 100vh;
     flex-direction: column;
 }
 
@@ -35,4 +34,15 @@
   .styled-list a,
 .styled-list strong {
   color: #2962FF; /* Blue color */
+}
+
+.button-row {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end; /* Align buttons to the right */
+  padding-bottom: 4px;
+}
+
+.mat-accordion {
+  width: 100vh;
 }

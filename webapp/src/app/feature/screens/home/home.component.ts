@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { FplDeatilsInputDialogComponent } from '../../modals/fpl-deatils-input-dialog/fpl-deatils-input-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -14,6 +16,7 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private location: Location,
     public authService: AuthService,
+    private matDialog: MatDialog,
   ) {}
 
 
@@ -21,7 +24,9 @@ export class HomeComponent {
     this.location.back();
   }
 
-  openDetailsDialog() {
-    console.log("Button clicked!");
+  openTeamIdDialog() {
+    this.matDialog.open(FplDeatilsInputDialogComponent, {
+      width:'300px'
+    })
   }
 }

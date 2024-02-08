@@ -9,10 +9,13 @@
                             <mat-icon>settings</mat-icon>
                         </button>
                         <mat-menu #profileSettings="matMenu">
-                            <button mat-menu-item (click)="openDetailsDialog()">
-                              <mat-icon>edit</mat-icon>
-                              Edit FPL Details
-                            </button>
+                            <mat-dialog-actions>
+                                <button mat-menu-item (click)="openTeamIdDialog()">
+                                    <mat-icon>edit</mat-icon>
+                                    Edit FPL Details
+                                  </button>
+                            </mat-dialog-actions>
+
                             
                             <button mat-menu-item>
                               <mat-icon>share</mat-icon>
