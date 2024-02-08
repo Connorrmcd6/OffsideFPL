@@ -1,35 +1,45 @@
-<div class="body-content">
-    <div class="dialog-content">
+<mat-dialog-actions>
+  <div class="dialog">
+    <header class="dialog-header">
+      <!-- Close button -->
+      <button mat-icon-button color="primary" [mat-dialog-close]="true" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </header>
+    <main class="dialog-content">
+      <!-- Form for Team ID -->
+      <form>
         <mat-form-field appearance="outline">
-            <mat-label>Team ID</mat-label>
-            <input matInput placeholder="Team ID" type="text">
-            <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
+          <mat-label>Team ID</mat-label>
+          <input matInput placeholder="Team ID" type="text" aria-label="Enter your Team ID">
+          <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
         </mat-form-field>
+        <!-- Button to find team -->
         <div class="button-row">
-            <button mat-raised-button color="primary">Find team</button>
+          <button mat-raised-button color="primary" aria-label="Find Team">Find Team</button>
         </div>
-        <div class="help-row">
-            <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <p>This is the primary content of the panel.</p>
-                </mat-expansion-panel>
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-description>
-                      Where do I find my Team ID?
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <ol class="styled-list">
-                    <li>Login to your FPL account at<a href="https://fantasy.premierleague.com"> https://fantasy.premierleague.com</a> on a browser of your choice</li>
-                    <li>Click on the "Pick Team" tab near the top of the page.</li>
-                    <li>Click on "Gameweek History". This will be to the right of your screen on PC and towards the bottom of the screen on mobile</li>
-                    <li>Once that page loads, check the URL in your browser address bar.
-                    <li>The <strong>Number</strong> in the URL is your <strong>Team ID.</strong> Enter that number in the box above and click find team.</li>
-                  </ol>
-                </mat-expansion-panel>
-              </mat-accordion> 
-        </div>
-    </div>
-</div>
-
+      </form>
+      <!-- Help section -->
+      <div class="help-row">
+        <mat-accordion aria-label="Help">
+          <mat-expansion-panel hideToggle>
+            <p>This is the primary content of the panel.</p>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                Where do I find my Team ID?
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ol class="styled-list" aria-label="Instructions to find Team ID">
+              <li>Login to your FPL account at <a href="https://fantasy.premierleague.com">https://fantasy.premierleague.com</a> on a browser of your choice.</li>
+              <li>Click on the "Pick Team" tab near the top of the page.</li>
+              <li>Click on "Gameweek History". This will be to the right of your screen on PC and towards the bottom of the screen on mobile.</li>
+              <li>Once that page loads, check the URL in your browser address bar. The number in the URL is your <strong>Team ID.</strong></li>
+            </ol>
+          </mat-expansion-panel>
+        </mat-accordion> 
+      </div>
+    </main>
+  </div>
+</mat-dialog-actions>

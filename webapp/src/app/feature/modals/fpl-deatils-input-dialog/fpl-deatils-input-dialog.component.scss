@@ -1,37 +1,60 @@
 .dialog-content {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-direction: column;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column;
+  padding: 20px; /* Add padding */
+}
+
+.dialog-header{
+  display: flex;
+  justify-content: flex-end; /* Center horizontally */
+
+}
+
+.top-content {
+  display: flex;
+  width: 100%;
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 20px; /* Add margin bottom */
 }
 
 .help-row {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    width: 300px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mat-accordion {
+  width: 100%; /* Ensure full width */
+}
+
+/* Adjust typography */
+.mat-form-field, .mat-raised-button {
+  width: 100%;
 }
 
 .styled-list {
-    list-style-type: none;
-    counter-reset: list-counter;
-    padding: 0;
-  }
-  
-  .styled-list li {
-    counter-increment: list-counter;
-    margin-bottom: 15px;
-  }
-  
-  .styled-list li::before {
-    content: counter(list-counter) ".";
-    font-weight: bold;
-    color:  rgba(0, 0, 0, 0.54);
-    margin-right: 5px;
-  }
+  list-style-type: none;
+  counter-reset: list-counter;
+  padding: 0;
+}
 
-  .styled-list a,
+.styled-list li {
+  counter-increment: list-counter;
+  margin-bottom: 10px; /* Adjust spacing */
+}
+
+.styled-list li::before {
+  content: counter(list-counter) ".";
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 5px;
+}
+
+.styled-list a,
 .styled-list strong {
   color: #2962FF; /* Blue color */
 }
@@ -39,10 +62,7 @@
 .button-row {
   display: flex;
   width: 100%;
-  justify-content: flex-end; /* Align buttons to the right */
-  padding-bottom: 4px;
+  justify-content: flex-end; /* Center horizontally */
+  margin-bottom: 20px; /* Add margin bottom */
 }
 
-.mat-accordion {
-  width: 100vh;
-}
