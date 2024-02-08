@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './fpl-deatils-input-dialog.component.scss'
 })
 export class FplDeatilsInputDialogComponent {
-
+  panelOpenState = false;
 }
