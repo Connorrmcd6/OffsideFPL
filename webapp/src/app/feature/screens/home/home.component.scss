@@ -8,17 +8,7 @@
     height: calc(100vh - 64px);
 }
 
-// @media (min-width: 600px) {
-//     .max-width-container {
-//       padding-top: 64px;
-//     }
-//   }
-  
-//   @media (max-width: 599px) {
-//     .max-width-container {
-//       padding-top: 56px;
-//     }
-//   }
+
 
 .card-container {
     display: flex;
@@ -34,18 +24,6 @@
     justify-content: space-between;
     margin: 10px; /* Applying equal margin on all sides */
 }
-
-// .profile-card {
-//     height: 25vh;
-// }
-
-// .league-card {
-//     height: 35vh;
-// }
-
-// .explore-card {
-//     height: 30vh;
-// }
 
 .card-header-content {
     display: flex;
