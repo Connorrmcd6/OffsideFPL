@@ -33,21 +33,13 @@
   align-items: center;
 }
 
-/* Logo Container Styles */
-.logo-container {
-  display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  margin-bottom: 0; /* Adjust spacing between logo and form */
-  cursor: pointer;
-}
-
 /* Logo Image Styles */
-.logo-container img {
-  max-width: 250px; /* Adjust the maximum width of the logo */
+.logo-container img.logo {
+  max-width: 200px; /* Adjust the maximum width of the logo */
   height: auto;
+  display: block; /* Ensures proper centering */
+  margin: 0 auto; /* Centers the logo horizontally */
 }
-
 /* Collapsed Content Styles */
 .collapsed-content {
   display: none;
@@ -89,10 +81,9 @@
     display: block;
   }
 
-  /* Make the logo 50% smaller */
-  .logo {
-    max-width: 10%;
-    height: auto;
+  /* Make the logo smaller in collapsed mode */
+  .logo-container img.logo {
+    max-width: 180px;
   }
 
   /* Margin for Child Elements in Collapsed Mode */
