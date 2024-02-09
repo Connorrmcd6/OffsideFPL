@@ -3,39 +3,9 @@
     <div class="max-width-container">
       
       <div class="logo-container">
-        <img class="logo" src="../../assets/images/white-logo-text-figma.svg" alt="Logo">
+        <!-- Use absolute path for the logo -->
+        <img class="logo" src="/assets/images/white-logo-text-figma.svg" alt="Logo">
       </div>
-
-      <div *ngIf="!authService.userData; else authenticatedHeader">
-        <div class="expanded-buttons">
-          <nav>
-            <button mat-raised-button [routerLink]="'/login'" color="accent">Login</button>
-            <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-          </nav>
-        </div>
-
-        <div class="collapsed-content">
-          <button mat-icon-button [matMenuTriggerFor]="collapsedMenu"> 
-            <mat-icon>menu</mat-icon>
-          </button>
-          <mat-menu #collapsedMenu="matMenu">
-            <div class="collapsed-buttons">
-              <button mat-raised-button [routerLink]="'/login'" color="primary">Login</button>
-              <button mat-raised-button [routerLink]="'/register'" color="accent">Register</button>
-            </div>
-          </mat-menu>
-        </div>
-      </div>
-
-      <ng-template #authenticatedHeader>
-        <nav>
-          <div class="actions-container">
-            <button mat-icon-button>
-              <mat-icon matBadge="2" matBadgeColor="warn">notifications_none</mat-icon>
-            </button>
-          </div>
-        </nav>
-      </ng-template>
 
     </div>
   </mat-toolbar>
