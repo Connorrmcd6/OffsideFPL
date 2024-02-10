@@ -1,6 +1,8 @@
+<!-- FILEPATH: /Users/connormcdonald/Desktop/GitHub/OffsideFPL/webapp/src/app/feature/auth/login/login.component.html -->
 <div class="login-container">
     <div class="login-card-content">
         <mat-card>
+            <!-- Navigation bar with a back button -->
             <nav>
                 <button  mat-icon-button colour="primary" (click)="goBack()">
                   <mat-icon>arrow_back</mat-icon>
@@ -8,15 +10,18 @@
             </nav>
             <div class="logo-welcome-container">
                 <div class="logo-container">
+                    <!-- Logo image -->
                     <img src="../../../../assets/images/blue-logo-text-figma.svg" alt="Logo">
                 </div>
             </div>
             <mat-card-content>
+                <!-- Email input field -->
                 <mat-form-field appearance="outline" required>
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="Email" type="text" #userEmail required>
                     <mat-icon color="primary" matSuffix>mail_outline</mat-icon>
                 </mat-form-field>
+                <!-- Password input field -->
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" #userPassword required (keyup.enter)="authService.SignIn(userEmail.value, userPassword.value)">
@@ -25,14 +30,17 @@
                     </button>
                 </mat-form-field>
                 <div class="button-row">
+                    <!-- Login button -->
                     <button mat-raised-button color="primary" (click)="authService.SignIn(userEmail.value, userPassword.value)">Login</button>
                 </div>
             </mat-card-content>
             <div class="bottom-content">
                 <span class="account-message">Don't have an account?</span>
+                <!-- Sign up button -->
                 <button mat-button color="primary" routerLink="/register">Sign Up</button>
             </div>
             <div class="forgot-password">
+                <!-- Forgot password button -->
                 <button mat-button color="primary" routerLink="/forgot-password">Forgot Password?</button>
             </div>
         </mat-card>
