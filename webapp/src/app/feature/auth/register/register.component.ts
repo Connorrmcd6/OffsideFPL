@@ -1,7 +1,7 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -12,28 +12,37 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RegisterComponent implements OnInit {
   hide1 = true;
   hide2 = true;
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private _formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     public authService: AuthService
   ) {}
 
+  // Go back to the previous page
   goBack(): void {
     this.location.back();
   }
 
-  firstFormGroup = this._formBuilder.group({
+  // Define the first form group
+  firstFormGroup = this.formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
-  secondFormGroup = this._formBuilder.group({
+
+  // Define the second form group
+  secondFormGroup = this.formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
 
-  thirdFormGroup = this._formBuilder.group({
+  // Define the third form group
+  thirdFormGroup = this.formBuilder.group({
     thirdCtrl: ['', Validators.required],
   });
+
   isLinear = false;
 
-  ngOnInit() { }
+  ngOnInit() {
+    // Initialization logic goes here
+  }
 }
