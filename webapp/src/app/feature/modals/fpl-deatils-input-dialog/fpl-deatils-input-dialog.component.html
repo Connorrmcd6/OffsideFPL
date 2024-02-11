@@ -28,8 +28,9 @@
           
           <div class="details">
             <p class="question"> Is this you?</p>
-            <p>Team: <span>Team Name</span></p>
-            <p>Name: <span>Manager Name</span></p>
+            
+            <p>Team: {{ userInfoService.userInfoData.teamName ? userInfoService.userInfoData.teamName : 'Not set' }}</p>
+            <p>Name: {{ userInfoService.userInfoData.playerFullName ? userInfoService.userInfoData.playerFullName : 'Not set' }}</p>
           </div>  
           
           <div class="details-buttons">

@@ -120,7 +120,9 @@ export class AuthService {
     const userInfoData: UserInfo = {
       uid: user.uid,
       teamID: null,
-      managerName: null,
+      playerFirstName: null,
+      playerLastName: null,
+      playerFullName: null,
       teamName: null,
       managerRegion: null,
     };

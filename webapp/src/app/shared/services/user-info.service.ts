@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserInfoService {
+  userInfoData = JSON.parse(localStorage.getItem('userInfo') || '{}');
 
   constructor(
     private http: HttpClient, // Inject HttpClient service
@@ -18,6 +19,8 @@ export class UserInfoService {
 
   // a function that takes a team id from an input and then makes a request to the FPL API to get the user's name and region
   getUserInfo(teamID: string) {
+
+
     let baseURL: string = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
 
     return this.http.get(baseURL).pipe(

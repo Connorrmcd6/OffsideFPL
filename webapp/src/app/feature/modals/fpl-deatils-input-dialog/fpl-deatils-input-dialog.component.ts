@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';import { MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 @Component({
   selector: 'app-fpl-deatils-input-dialog',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';import { MatDialog } from '@angular/ma
 })
 export class FplDeatilsInputDialogComponent {
   panelOpenState = false;
+
+  constructor(
+    public userInfoService: UserInfoService
+    ) {}
 }
