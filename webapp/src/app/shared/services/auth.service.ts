@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from './auth';
+import { UserInfo } from './user-info';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -46,8 +47,15 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log('sending verification email');
         this.SendVerificationMail();
+        console.log('setting user data');
         this.SetUserData(result.user);
+        console.log('setting user info data');
+        this.SetUserInfoData(result.user);
+        if (result != null) {
+          console.log('user id', result.user?.uid);
+        }
       })
       .catch((error) => {
         window.alert(error.message);
@@ -91,6 +99,21 @@ export class AuthService {
     };
     return userRef.set(userData, { merge: true });
   }
+
+//create user info record linked to auth uid
+  SetUserInfoData(user: any) {
+    const userRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${user.uid}`);
+    const userInfoData: UserInfo = {
+      uid: user.uid,
+      teamID: null,
+      managerName: null,
+      teamName: null,
+      managerRegion: null,
+    };
+    return userRef.set(userInfoData, { merge: true });
+  }
+
+
 
   // Sign out
   SignOut() {
