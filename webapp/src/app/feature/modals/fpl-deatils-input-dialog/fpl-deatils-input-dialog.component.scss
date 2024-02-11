@@ -71,3 +71,29 @@
   font-weight: bold;
   font-size: 16px;
 }
+
+.details-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center; /* Center horizontally */
+}
+
+.question {
+  color: #2962FF; 
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.details-check {
+  border-radius: 16px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

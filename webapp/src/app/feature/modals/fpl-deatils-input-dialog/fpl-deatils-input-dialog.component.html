@@ -18,11 +18,31 @@
           <input matInput placeholder="Team ID" type="text" aria-label="Enter your Team ID">
           <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
         </mat-form-field>
+
         <!-- Button to find team -->
         <div class="button-row">
           <button mat-raised-button color="primary" aria-label="Find Team">Find Team</button>
         </div>
+
+        <div class="details-check">
+          
+          <div class="details">
+            <p class="question"> Is this you?</p>
+            <p>Team: <span>Team Name</span></p>
+            <p>Name: <span>Manager Name</span></p>
+          </div>  
+          
+          <div class="details-buttons">
+            <button mat-raised-button color="primary">Yes</button>
+            <button mat-stroked-button color="warn">No</button>
+          </div>  
+        </div>
+
+
       </form>
+
+
+
       <!-- Help section -->
       <div class="help-row">
         <mat-accordion aria-label="Help">
