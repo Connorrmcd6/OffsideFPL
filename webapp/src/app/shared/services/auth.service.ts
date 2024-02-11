@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any; // Save logged-in user data
+  userInfoData: any; // Save logged-in user data
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -17,14 +18,27 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in local storage when
+    /* Saving user data and userInfoData in local storage when
        logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       this.userData = user;
       localStorage.setItem('user', JSON.stringify(this.userData));
+  
+      if (user) {
+        this.afs
+          .doc(`user-info/${user.uid}`)
+          .valueChanges()
+          .subscribe((userInfo) => {
+            this.userInfoData = userInfo;
+            localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
+          });
+      } else {
+        localStorage.removeItem('userInfo');
+      }
     });
   }
 
+  
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
