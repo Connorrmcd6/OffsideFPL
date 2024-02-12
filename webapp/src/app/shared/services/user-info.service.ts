@@ -3,12 +3,15 @@ import { UserInfo } from './user-info';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserInfoService {
-  userInfoData = JSON.parse(localStorage.getItem('userInfo') || '{}');
+  userInfoData: UserInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
 
   constructor(
     private http: HttpClient, // Inject HttpClient service
@@ -17,19 +20,15 @@ export class UserInfoService {
   ) { }
 
 
-  // a function that takes a team id from an input and then makes a request to the FPL API to get the user's name and region
   getUserInfo(teamID: string) {
+    const baseUrl = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
+    this.http
+      .get(baseUrl, { headers: { 'Access-Control-Allow-Origin': '*' } }) // Add headers to allow CORS
+      .subscribe((data) => {
+        console.log(data);
+      });
 
-
-    let baseURL: string = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
-
-    return this.http.get(baseURL).pipe(
-      map((response: any) => {
-        const { player_first_name, player_last_name, name, player_region_name } = response;
-        const manager_name = `${player_first_name} ${player_last_name}`;
-        return { manager_name, name, player_region_name };
-      })
-    );
   }
+
 
 }

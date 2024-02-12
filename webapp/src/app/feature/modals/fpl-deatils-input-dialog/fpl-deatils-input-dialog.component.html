@@ -15,13 +15,13 @@
       <form>
         <mat-form-field appearance="outline">
           <mat-label>Team ID</mat-label>
-          <input matInput placeholder="Team ID" type="text" aria-label="Enter your Team ID">
+          <input matInput placeholder="Team ID" type="text" aria-label="Enter your Team ID" #teamID>
           <mat-icon color="primary" matSuffix>perm_identity</mat-icon>
         </mat-form-field>
 
         <!-- Button to find team -->
         <div class="button-row">
-          <button mat-raised-button color="primary" aria-label="Find Team">Find Team</button>
+          <button mat-raised-button type="button" color="primary" aria-label="Find Team" (click)="userInfoService.getUserInfo(teamID.value)">Find Team</button>
         </div>
 
         <div class="details-check">
