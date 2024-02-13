@@ -25,17 +25,17 @@
 						],
 						"tsConfig": "tsconfig.app.json",
 						"assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
-            ],
+							"src/favicon.ico",
+							"src/assets",
+							"src/manifest.webmanifest"
+						],
 						"styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
-            ],
-            "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+							"@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/styles.scss"
+						],
+						"scripts": [],
+						"serviceWorker": true,
+						"ngswConfigPath": "ngsw-config.json"
 					},
 					"configurations": {
 						"production": {
@@ -73,19 +73,21 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-            "production": {
-              "buildTarget": "OffsideFPL:build:production"
+						"production": {
+							"buildTarget": "OffsideFPL:build:production",
+							"proxyConfig": "src/proxy.conf.json"
 						},
-            "development": {
-              "buildTarget": "OffsideFPL:build:development"
+						"development": {
+							"buildTarget": "OffsideFPL:build:development",
+							"proxyConfig": "src/proxy.conf.json"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "OffsideFPL:build"
+					"options": {
+						"buildTarget": "OffsideFPL:build"
 					}
 				},
 				"test": {
@@ -97,14 +99,14 @@
 						],
 						"tsConfig": "tsconfig.spec.json",
 						"assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
-            ],
+							"src/favicon.ico",
+							"src/assets",
+							"src/manifest.webmanifest"
+						],
 						"styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
-            ],
+							"@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/styles.scss"
+						],
 						"scripts": []
 					}
 				}

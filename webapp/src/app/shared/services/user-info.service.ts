@@ -33,7 +33,7 @@ export class UserInfoService {
 
   testBackend() {
     console.log('testBackend');
-    return this.http.get('http://localhost:8080/api/test').subscribe((response: any) => {
+    return this.http.get('/api/test').subscribe((response: any) => {
       console.log(response.message);
     });
   }
