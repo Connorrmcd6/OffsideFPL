@@ -3,7 +3,7 @@ export interface UserInfo {
     teamID: null | number
     playerFirstName: null | string;
     playerLastName: null | string;
-    playerFullName: null | string;
+    playerName: null | string;
     teamName: null | string;
     managerRegion: null | string;
- }
+}

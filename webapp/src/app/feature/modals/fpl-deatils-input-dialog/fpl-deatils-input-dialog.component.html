@@ -21,22 +21,24 @@
 
         <!-- Button to find team -->
         <div class="button-row">
-          <button mat-raised-button type="button" color="primary" aria-label="Find Team" (click)="userInfoService.getUserInfo(teamID.value)">Find Team</button>
+          <button mat-raised-button type="button" color="primary" aria-label="Find Team"
+            (click)="userInfoService.getUserInfo(teamID.value)">Find Team</button>
         </div>
 
         <div class="details-check">
-          
+
           <div class="details">
             <p class="question"> Is this you?</p>
-            
+
             <p>Team: {{ userInfoService.userInfoData.teamName ? userInfoService.userInfoData.teamName : 'Not set' }}</p>
-            <p>Name: {{ userInfoService.userInfoData.playerFullName ? userInfoService.userInfoData.playerFullName : 'Not set' }}</p>
-          </div>  
-          
+            <p>Name: {{ userInfoService.userInfoData.playerName ? userInfoService.userInfoData.playerName : 'Not set' }}
+            </p>
+          </div>
+
           <div class="details-buttons">
             <button mat-raised-button color="primary">Yes</button>
             <button mat-stroked-button color="warn">No</button>
-          </div>  
+          </div>
         </div>
 
 
@@ -54,13 +56,17 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <ol class="styled-list" aria-label="Instructions to find Team ID">
-              <li>Login to your FPL account <a href="https://fantasy.premierleague.com">here</a> on a browser of your choice.</li>
+              <li>Login to your FPL account <a href="https://fantasy.premierleague.com">here</a> on a browser of your
+                choice.</li>
               <li>Click on the "Pick Team" tab near the top of the page.</li>
-              <li>Click on "Gameweek History". This will be to the right of your screen on PC and towards the bottom of the screen on mobile.</li>
-              <li>Once that page loads, check the URL in your browser address bar. The number in the URL is your <strong>Team ID.</strong></li>
+              <li>Click on "Gameweek History". This will be to the right of your screen on PC and towards the bottom of
+                the screen on mobile.</li>
+              <li>Once that page loads, check the URL in your browser address bar. The number in the URL is your
+                <strong>Team ID.</strong>
+              </li>
             </ol>
           </mat-expansion-panel>
-        </mat-accordion> 
+        </mat-accordion>
       </div>
 
     </main>

@@ -21,20 +21,25 @@ export class UserInfoService {
 
 
   getUserInfo(teamID: string) {
-    // const baseUrl = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
     const baseUrl = `/api/user?teamID=${teamID}`;
+    let data; // Declare the 'data' variable
     this.http
       .get(baseUrl, { headers: { 'Access-Control-Allow-Origin': '*' } }) // Add headers to allow CORS
-      .subscribe((data) => {
+      .subscribe((responseData: any) => {
+        let data: any = responseData; // Assign the value to 'data'
         console.log(data);
+        this.userInfoData.teamName = data?.name;
+        this.userInfoData.playerFirstName = data?.player_first_name;
+        this.userInfoData.playerLastName = data?.player_last_name;
+        this.userInfoData.playerName = data?.player_name;
       });
 
+    return data;
   }
-
 
   testBackend() {
     console.log('testBackend');
-    return this.http.get('/api/test').subscribe((response: any) => {
+    this.http.get('/api/test').subscribe((response: any) => {
       console.log(response.message);
     });
   }

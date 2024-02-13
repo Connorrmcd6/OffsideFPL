@@ -23,7 +23,7 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       this.userData = user;
       localStorage.setItem('user', JSON.stringify(this.userData));
-  
+
       if (user) {
         this.afs
           .doc(`user-info/${user.uid}`)
@@ -38,7 +38,7 @@ export class AuthService {
     });
   }
 
-  
+
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
@@ -114,7 +114,7 @@ export class AuthService {
     return userRef.set(userData, { merge: true });
   }
 
-//create user info record linked to auth uid
+  //create user info record linked to auth uid
   SetUserInfoData(user: any) {
     const userRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${user.uid}`);
     const userInfoData: UserInfo = {
@@ -122,7 +122,7 @@ export class AuthService {
       teamID: null,
       playerFirstName: null,
       playerLastName: null,
-      playerFullName: null,
+      playerName: null,
       teamName: null,
       managerRegion: null,
     };
