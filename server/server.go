@@ -1,13 +1,14 @@
 package main
 
 import (
-	"context"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"log"
-	"os"
 	"OffsideFPL/db"
 	"OffsideFPL/web"
+	"context"
+	"log"
+	"os"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func main() {
