@@ -21,7 +21,8 @@ export class UserInfoService {
 
 
   getUserInfo(teamID: string) {
-    const baseUrl = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
+    // const baseUrl = `https://fantasy.premierleague.com/api/entry/${teamID}/`;
+    const baseUrl = `/api/user?teamID=${teamID}`;
     this.http
       .get(baseUrl, { headers: { 'Access-Control-Allow-Origin': '*' } }) // Add headers to allow CORS
       .subscribe((data) => {

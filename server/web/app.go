@@ -2,6 +2,7 @@ package web
 
 import (
 	"OffsideFPL/db"
+	"OffsideFPL/fpl"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -10,11 +11,6 @@ import (
 type App struct {
 	d        db.DB
 	handlers map[string]http.HandlerFunc
-}
-
-func (a *App) TestEndpoint(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, Frontend!"})
 }
 
 func NewApp(d db.DB, cors bool) App {
@@ -28,8 +24,14 @@ func NewApp(d db.DB, cors bool) App {
 	}
 	app.handlers["/api/technologies"] = techHandler
 	app.handlers["/api/test"] = app.TestEndpoint
+	app.handlers["/api/user"] = app.GetUserInfo
 	app.handlers["/"] = http.FileServer(http.Dir("/webapp")).ServeHTTP
 	return app
+}
+
+func (a *App) TestEndpoint(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, Frontend!"})
 }
 
 func (a *App) Serve() error {
@@ -38,6 +40,25 @@ func (a *App) Serve() error {
 	}
 	log.Println("Web server is available on port 8080")
 	return http.ListenAndServe(":8080", nil)
+}
+
+func (a *App) GetUserInfo(w http.ResponseWriter, r *http.Request) {
+	queryParams := r.URL.Query()
+	paramValue := queryParams.Get("teamID")
+	if paramValue == "" {
+		sendErr(w, http.StatusBadRequest, "Missing query parameter: param")
+		return
+	}
+
+	data, err := fpl.GetProfileInfo(paramValue) // Pass the query parameter to the function
+	if err != nil {
+		sendErr(w, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	if err := json.NewEncoder(w).Encode(data); err != nil {
+		sendErr(w, http.StatusInternalServerError, err.Error())
+	}
 }
 
 func (a *App) GetTechnologies(w http.ResponseWriter, r *http.Request) {

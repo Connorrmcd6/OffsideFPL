@@ -13,7 +13,7 @@ type ProfileInfo struct {
 	TeamName        string `json:"name"`
 }
 
-func GetTeamData(teamID string) (ProfileInfo, error) {
+func GetProfileInfo(teamID string) (ProfileInfo, error) {
 	resp, err := http.Get("https://fantasy.premierleague.com/api/entry/" + teamID + "/")
 	if err != nil {
 		return ProfileInfo{}, err
