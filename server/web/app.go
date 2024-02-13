@@ -1,15 +1,20 @@
 package web
 
 import (
+	"OffsideFPL/db"
 	"encoding/json"
 	"log"
 	"net/http"
-	"OffsideFPL/db"
 )
 
 type App struct {
 	d        db.DB
 	handlers map[string]http.HandlerFunc
+}
+
+func (a *App) TestEndpoint(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, Frontend!"})
 }
 
 func NewApp(d db.DB, cors bool) App {
@@ -22,6 +27,7 @@ func NewApp(d db.DB, cors bool) App {
 		techHandler = disableCors(techHandler)
 	}
 	app.handlers["/api/technologies"] = techHandler
+	app.handlers["/api/test"] = app.TestEndpoint
 	app.handlers["/"] = http.FileServer(http.Dir("/webapp")).ServeHTTP
 	return app
 }
@@ -60,4 +66,5 @@ func disableCors(h http.HandlerFunc) http.HandlerFunc {
 		w.Header().Set("Access-Control-Allow-Headers", "*")
 		h(w, r)
 	}
+
 }
