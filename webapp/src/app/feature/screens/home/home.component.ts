@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FplDeatilsInputDialogComponent } from '../../modals/fpl-deatils-input-dialog/fpl-deatils-input-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class HomeComponent {
     private location: Location,
     public authService: AuthService,
     private matDialog: MatDialog,
+    public userInfoService: UserInfoService
   ) {}
 
 
