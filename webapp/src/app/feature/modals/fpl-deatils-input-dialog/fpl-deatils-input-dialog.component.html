@@ -2,7 +2,7 @@
   <div class="dialog">
     <header class="dialog-header">
       <!-- Close button -->
-      <button mat-icon-button color="primary" [mat-dialog-close]="true" aria-label="Close dialog">
+      <button mat-icon-button type="button" color="primary" [mat-dialog-close]="true" aria-label="Close dialog">
         <mat-icon>close</mat-icon>
       </button>
     </header>
@@ -22,22 +22,32 @@
         <!-- Button to find team -->
         <div class="button-row">
           <button mat-raised-button type="button" color="primary" aria-label="Find Team"
-            (click)="userInfoService.getUserInfo(teamID.value)">Find Team</button>
+            (click)="userInfoService.getUserInfo(teamID.value); confirmationOpenState = true">Find Team</button>
         </div>
 
-        <div class="details-check">
+        <div class="details-check"
+          *ngIf="userInfoService.userInfoData.teamName !== null && confirmationOpenState == true">
 
           <div class="details">
-            <p class="question"> Is this you?</p>
 
-            <p>Team: {{ userInfoService.userInfoData.teamName ? userInfoService.userInfoData.teamName : 'Not set' }}</p>
-            <p>Name: {{ userInfoService.userInfoData.playerName ? userInfoService.userInfoData.playerName : 'Not set' }}
+            <div class="question-row">
+              <p>Is this you?</p>
+              <button mat-icon-button type="button" color="primary" aria-label="Close confirm card"
+                (click)="confirmationOpenState = false">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+
+            <p><strong>Team:</strong> {{ userInfoService.userInfoData.teamName ? userInfoService.userInfoData.teamName
+              :'Not set' }}</p>
+            <p><strong>Name:</strong> {{ userInfoService.userInfoData.playerName ?
+              userInfoService.userInfoData.playerName : 'Not set' }}
             </p>
           </div>
 
           <div class="details-buttons">
-            <button mat-raised-button color="primary">Yes</button>
-            <button mat-stroked-button color="warn">No</button>
+            <button mat-raised-button type="button" color="primary">Yes</button>
+            <button mat-stroked-button type="button" color="warn">No</button>
           </div>
         </div>
 

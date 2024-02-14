@@ -8,8 +8,9 @@ import { UserInfoService } from 'src/app/shared/services/user-info.service';
 })
 export class FplDeatilsInputDialogComponent {
   panelOpenState = false;
+  confirmationOpenState = false;
 
   constructor(
     public userInfoService: UserInfoService
-    ) {}
+  ) { }
 }
