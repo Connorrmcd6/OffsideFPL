@@ -7,3 +7,12 @@ export interface UserInfo {
     teamName: null | string;
     managerRegion: null | string;
 }
+
+
+export interface UserInfoSession {
+    name: string;
+    player_first_name: string;
+    player_last_name: string;
+    player_name: string;
+    id: number;
+}

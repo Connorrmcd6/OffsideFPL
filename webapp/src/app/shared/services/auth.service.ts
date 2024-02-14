@@ -116,7 +116,7 @@ export class AuthService {
 
   //create user info record linked to auth uid
   SetUserInfoData(user: any) {
-    const userRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${user.uid}`);
+    const userInfoRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${user.uid}`);
     const userInfoData: UserInfo = {
       uid: user.uid,
       teamID: null,
@@ -126,7 +126,7 @@ export class AuthService {
       teamName: null,
       managerRegion: null,
     };
-    return userRef.set(userInfoData, { merge: true });
+    return userInfoRef.set(userInfoData, { merge: true });
   }
 
 

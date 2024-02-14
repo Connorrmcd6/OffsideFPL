@@ -22,7 +22,7 @@
         <!-- Button to find team -->
         <div class="button-row">
           <button mat-raised-button type="button" color="primary" aria-label="Find Team"
-            (click)="userInfoService.getUserInfo(teamID.value); confirmationOpenState = true">Find Team</button>
+            (click)="userInfoService.fetchUserInfo(teamID.value); confirmationOpenState = true">Find Team</button>
         </div>
 
         <div class="details-check"
@@ -46,7 +46,8 @@
           </div>
 
           <div class="details-buttons">
-            <button mat-raised-button type="button" color="primary">Yes</button>
+            <button mat-raised-button type="button" color="primary"
+              (click)="userInfoService.updateUserInfo(userInfoService.userInfoDataSession)">Yes</button>
             <button mat-stroked-button type="button" color="warn">No</button>
           </div>
         </div>
