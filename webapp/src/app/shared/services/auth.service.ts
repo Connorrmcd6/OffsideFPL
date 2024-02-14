@@ -119,12 +119,12 @@ export class AuthService {
     const userInfoRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${user.uid}`);
     const userInfoData: UserInfo = {
       uid: user.uid,
-      teamID: null,
-      playerFirstName: null,
-      playerLastName: null,
-      playerName: null,
-      teamName: null,
-      managerRegion: null,
+      teamID: undefined,
+      playerFirstName: undefined,
+      playerLastName: undefined,
+      playerName: undefined,
+      teamName: undefined,
+      playerRegion: undefined,
     };
     return userInfoRef.set(userInfoData, { merge: true });
   }

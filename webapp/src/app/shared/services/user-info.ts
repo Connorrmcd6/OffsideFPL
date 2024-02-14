@@ -1,18 +1,19 @@
 export interface UserInfo {
     uid: string;
-    teamID: null | number
-    playerFirstName: null | string;
-    playerLastName: null | string;
-    playerName: null | string;
-    teamName: null | string;
-    managerRegion: null | string;
+    teamID: undefined | number
+    playerFirstName: undefined | string;
+    playerLastName: undefined | string;
+    playerName: undefined | string;
+    teamName: undefined | string;
+    playerRegion: undefined | string;
 }
 
 
-export interface UserInfoSession {
-    name: string;
-    player_first_name: string;
-    player_last_name: string;
-    player_name: string;
-    id: number;
+export interface UserInfoResponse {
+    name?: string;
+    id?: number;
+    player_first_name?: string;
+    player_last_name?: string;
+    player_name?: string;
+    player_region_name?: string;
 }

@@ -11,6 +11,7 @@ type ProfileInfo struct {
 	PlayerLastName  string `json:"player_last_name"`
 	PlayerName      string `json:"player_name"`
 	TeamName        string `json:"name"`
+	PlayerRegion    string `json:"player_region_name"`
 }
 
 func GetProfileInfo(teamID string) (ProfileInfo, error) {
@@ -32,6 +33,7 @@ func GetProfileInfo(teamID string) (ProfileInfo, error) {
 		PlayerLastName:  data["player_last_name"].(string),
 		PlayerName:      data["player_first_name"].(string) + " " + data["player_last_name"].(string),
 		TeamName:        data["name"].(string),
+		PlayerRegion:    data["player_region_name"].(string),
 	}
 
 	return profileInfo, nil
