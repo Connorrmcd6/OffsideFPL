@@ -22,19 +22,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 10px; /* Applying equal margin on all sides */
+    margin: 10px;
+    /* Applying equal margin on all sides */
 }
 
 .card-header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; /* Full width */
+    width: 100%;
+    /* Full width */
 }
 
 .card-header-content span {
     font-weight: bold;
-    color:  #2962FF;
+    color: #2962FF;
 }
 
 .mat-card-header {
@@ -58,11 +60,11 @@
 .signout-container {
     display: flex;
     justify-content: center;
-  }
+}
 
 .manager-details {
     color: rgba(0, 0, 0, 0.54);
-    font-weight: bold;
+
 }
 
 .create-buttons {
