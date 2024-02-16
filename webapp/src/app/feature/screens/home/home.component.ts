@@ -7,6 +7,19 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 
+
+export interface League {
+  name: string;
+  rank: number;
+  mode: string;
+}
+
+const LEAGUE_DATA: League[] = [
+  { rank: 1, name: 'YNDA', mode: 'YNDA' },
+  { rank: 2, name: 'Luno', mode: 'Mystery Ball' },
+  { rank: 1, name: 'OQLIS', mode: 'AntiFPL' },
+];
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +32,7 @@ export class HomeComponent {
     public authService: AuthService,
     private matDialog: MatDialog,
     public userInfoService: UserInfoService
-  ) {}
+  ) { }
 
 
   goBack(): void {
@@ -28,7 +41,12 @@ export class HomeComponent {
 
   openTeamIdDialog() {
     this.matDialog.open(FplDeatilsInputDialogComponent, {
-      width:'350px'
+      width: '350px'
     })
   }
+
+
+  displayedColumns: string[] = ['name', 'rank', 'mode'];
+  dataSource = LEAGUE_DATA;
+
 }
