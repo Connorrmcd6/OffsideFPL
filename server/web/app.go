@@ -1,7 +1,6 @@
 package web
 
 import (
-	"OffsideFPL/db"
 	"OffsideFPL/fpl"
 	"encoding/json"
 	"log"
@@ -9,13 +8,13 @@ import (
 )
 
 type App struct {
-	d        db.DB
+	// db        nil
 	handlers map[string]http.HandlerFunc
 }
 
-func NewApp(d db.DB, cors bool) App {
+func NewApp(cors bool) App { //originally took a db as a parameter but removed since we dont use mongo
 	app := App{
-		d:        d,
+		// d:        d,
 		handlers: make(map[string]http.HandlerFunc),
 	}
 
