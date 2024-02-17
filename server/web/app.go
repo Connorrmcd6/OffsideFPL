@@ -18,11 +18,13 @@ func NewApp(d db.DB, cors bool) App {
 		d:        d,
 		handlers: make(map[string]http.HandlerFunc),
 	}
-	techHandler := app.GetTechnologies
-	if !cors {
-		techHandler = disableCors(techHandler)
-	}
-	app.handlers["/api/technologies"] = techHandler
+
+	// techHandler := app.GetTechnologies
+	// if !cors {
+	// 	techHandler = disableCors(techHandler)
+	// }
+
+	// app.handlers["/api/technologies"] = techHandler
 	app.handlers["/api/test"] = app.TestEndpoint
 	app.handlers["/api/user"] = app.GetUserInfo
 	app.handlers["/"] = http.FileServer(http.Dir("/webapp")).ServeHTTP
@@ -57,19 +59,6 @@ func (a *App) GetUserInfo(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := json.NewEncoder(w).Encode(data); err != nil {
-		sendErr(w, http.StatusInternalServerError, err.Error())
-	}
-}
-
-func (a *App) GetTechnologies(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	technologies, err := a.d.GetTechnologies()
-	if err != nil {
-		sendErr(w, http.StatusInternalServerError, err.Error())
-		return
-	}
-	err = json.NewEncoder(w).Encode(technologies)
-	if err != nil {
 		sendErr(w, http.StatusInternalServerError, err.Error())
 	}
 }
