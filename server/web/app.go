@@ -19,14 +19,15 @@ func NewApp(d db.DB, cors bool) App {
 		handlers: make(map[string]http.HandlerFunc),
 	}
 
-	// techHandler := app.GetTechnologies
-	// if !cors {
-	// 	techHandler = disableCors(techHandler)
-	// }
+	testHandler := app.TestEndpoint
+	userInfoHandler := app.GetUserInfo
+	if !cors {
+		testHandler = disableCors(testHandler)
+		userInfoHandler = disableCors(userInfoHandler)
+	}
 
-	// app.handlers["/api/technologies"] = techHandler
-	app.handlers["/api/test"] = app.TestEndpoint
-	app.handlers["/api/user"] = app.GetUserInfo
+	app.handlers["/api/test"] = testHandler
+	app.handlers["/api/user"] = userInfoHandler
 	app.handlers["/"] = http.FileServer(http.Dir("/webapp")).ServeHTTP
 	return app
 }
