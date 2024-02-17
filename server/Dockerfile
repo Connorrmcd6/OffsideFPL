@@ -21,3 +21,6 @@ EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]
+
+
+# when excuting this Dockerfile in the terminal  make sure to map the host port to the docker port with docker run -p 8080:8080 go-containerized:latest
