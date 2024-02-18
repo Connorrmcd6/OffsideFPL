@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	lambda.Start(api.Handler)
+	lambda.Start(api.HelloLambda)
 	// CORS is enabled only in prod profile
 	cors := os.Getenv("profile") == "prod"
 	app := web.NewApp(cors)
