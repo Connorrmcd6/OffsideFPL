@@ -5,6 +5,7 @@ go 1.21
 require go.mongodb.org/mongo-driver v1.12.0
 
 require (
+	github.com/aws/aws-lambda-go v1.46.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
@@ -16,4 +17,3 @@ require (
 	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4 // indirect
 	golang.org/x/text v0.7.0 // indirect
 )
-
