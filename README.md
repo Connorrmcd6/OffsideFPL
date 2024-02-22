@@ -3,7 +3,7 @@
 
 - The app is designed to be a persisted web app (PWA) which means it will be installable on the device without the need of an app store. The frontend is written in Angular, which is hosted on Firebase alongside a NoSQL database, and the backend is written in Golang which is hosted on AWS lambda.
 
-- I chose to use Golang and Angular for this project due to their excellent standard libraries as I have faced issues with third-party libraries in the past when experimenting with React and React Native. 
+- I chose to use Golang and Angular for this project due to their excellent standard libraries as I have faced issues with third-party libraries in the past when experimenting with React and React Native.
 
 
 
@@ -59,7 +59,7 @@ npm install
 npm start
 ```
 The application will be available on http://localhost:3000.
- 
+
 ## Start in production mode
 
 Perform:
