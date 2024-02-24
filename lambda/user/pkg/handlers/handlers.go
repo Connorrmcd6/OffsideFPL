@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"lambda-user/pkg/user"
 	"net/http"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -17,4 +18,14 @@ func GetUserProfile(request events.APIGatewayProxyRequest) (*events.APIGatewayPr
 	}
 	return apiResponse(http.StatusOK, result)
 
+}
+
+var ErrorMethodNotAllowed = "this method is not permitted"
+
+type ErrorBody struct {
+	Error *string `json:"error,omitempty"`
+}
+
+func UnhandledMethod() (*events.APIGatewayProxyResponse, error) {
+	return apiResponse(http.StatusMethodNotAllowed, ErrorMethodNotAllowed)
 }

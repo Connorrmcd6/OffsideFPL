@@ -73,16 +73,16 @@ Follow these steps to build your Go application for AWS Lambda:
     - `GOOS` specifies the target operating system. AWS Lambda functions run on Linux, hence we target the Linux OS.
     - `GOARCH` specifies the target architecture. AWS Lambda supports both `x86_64` and `arm64` architectures. However, `arm64` is more efficient and is the default for M1 chips. If you need to target `x86_64`, update the architecture on AWS Lambda and modify the build command accordingly.
 
-3. Move the `bootstrap` executable to the `builds` directory:
+3. Move the `bootstrap` executable to the `build` directory:
 
     ```bash
-    mv bootstrap ../builds
+    mv bootstrap ../build
     ```
 
-4. Navigate to the `builds` directory and create a zip file containing the `bootstrap` executable:
+4. Navigate to the `build` directory and create a zip file containing the `bootstrap` executable:
 
     ```bash
-    cd ../builds
+    cd ../build
     zip bootstrap.zip bootstrap
     ```
 
@@ -115,13 +115,17 @@ Follow these steps to configure your API Gateway:
     - Name your API.
     - Select `Regional` for the endpoint type.
 
-3. After creating the API, you can create methods that will be linked to different Lambda functions.
+3. After creating the API, you can create resources that will be linked to different url paths. Each path can be linked to a different lambda function.
 
-4. Click `Create method` and select `ANY` for the method type. This allows the handler function in `main.go` to handle different types of requests:
+4. Click create resource and provide a name, the path will be auto generated after this.
+
+5. Make sure your new resource is selected and click `Create method` and select `ANY` for the method type. This allows the handler function in `main.go` to handle different types of requests:
     - Enable `Lambda Proxy Integration`.
     - Select the Lambda function that you want to assign to this method.
     - Enable `Default Timeout`.
 
-5. Deploy the API and name the stage according to the method name.
+6. Deploy the API.
 
-6. Use the provided Invoke URL to activate the function.
+7. Use the provided Invoke URL to activate the function.
+
+

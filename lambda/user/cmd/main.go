@@ -16,16 +16,8 @@ func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResp
 
 	switch request.HTTPMethod {
 	case "GET":
-		return handlers.getMethod(request)
+		return handlers.GetUserProfile(request)
 
-	case "POST":
-		return handlers.postMethod(request)
-
-	case "PUT":
-		return handlers.putMethod(request)
-
-	case "DELETE":
-		return handlers.deleteMethod(request)
 	default:
 		return handlers.UnhandledMethod()
 	}
