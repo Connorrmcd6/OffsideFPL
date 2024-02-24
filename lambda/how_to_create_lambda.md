@@ -1,3 +1,59 @@
+# directory config
+1. create a new directory in the `lambda` directory with a general name for the functions that will be found in it eg. `user` for all user related functions
+
+2. Navigate to the new directory and run the following to create a go module for the lambda function:
+    ```bash
+    cd new_dir
+    go mod init lambda-{new_dir}
+    ```
+
+3. create the `build`, `cmd` and `pkg` directories
+    - `build` will be where we store the exe and zip files
+    - `cmd` will be for `main.go`
+    - `pkg` will be for our function logic
+        - in `pkg` create a `handlers` directory and then subsequent directories for any specific functions that the handlers need to execute
+
+4. the `main.go` file will be structured as follows
+    ```bash
+
+    package main
+
+    import (
+        "lambda-{module name}/pkg/handlers"
+
+        "github.com/aws/aws-lambda-go/events"
+        "github.com/aws/aws-lambda-go/lambda"
+    )
+
+    func main() {
+        lambda.Start(handler)
+    }
+
+    func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+
+        // note you do not need a method for each request type, just include what you need
+
+        switch request.HTTPMethod {
+        case "GET":
+            return handlers.getMethod(request)
+
+        case "POST":
+            return handlers.postMethod(request)
+
+        case "PUT":
+            return handlers.putMethod(request)
+        
+        case "DELETE":
+            return handlers.deleteMethod(request)
+        default:
+            return handlers.UnhandledMethod()
+        }
+    }
+
+    ```
+
+.
+
 # Build Process
 
 Follow these steps to build your Go application for AWS Lambda:
