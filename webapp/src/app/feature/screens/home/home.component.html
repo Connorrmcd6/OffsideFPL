@@ -38,14 +38,14 @@
                 <mat-card-content>
                     <div class="manager-details">
                         <p><strong>Manager:</strong> {{ userInfoService.userInfoData.playerName ?
-                            authService.userInfoData.playerName
+                            userInfoService.userInfoData.playerName
                             : 'Not set' }}</p>
                         <p><strong>Team:</strong> {{ userInfoService.userInfoData.teamName ?
-                            authService.userInfoData.teamName : 'Not
+                            userInfoService.userInfoData.teamName : 'Not
                             set' }}
                         </p>
                         <p><strong>Team ID:</strong> {{ userInfoService.userInfoData.teamID ?
-                            authService.userInfoData.teamID : 'Not set'
+                            userInfoService.userInfoData.teamID : 'Not set'
                             }}
                         </p>
                     </div>
@@ -93,11 +93,11 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="explore-card">
+            <!-- <mat-card class="explore-card">
                 <mat-card-content>
                     <p>Explore card</p>
                 </mat-card-content>
-            </mat-card>
+            </mat-card> -->
         </div>
     </div>
 </div>

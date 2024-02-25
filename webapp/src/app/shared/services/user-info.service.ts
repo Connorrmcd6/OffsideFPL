@@ -21,7 +21,7 @@ export class UserInfoService {
   // requests data from the go handler that requests from the public fpl api based on the team ID specified by the user
   // data is then stored in the session storage
   fetchUserInfo(teamID: string) {
-    const baseUrl = `/api/user?teamID=${teamID}`;
+    const baseUrl = `https://6ody34425f.execute-api.eu-north-1.amazonaws.com/prod/api/userinfo?team_id=${teamID}`;
     let data; // Declare the 'data' variable
     this.http
       .get(baseUrl, { headers: { 'Access-Control-Allow-Origin': '*' } }) // Add headers to allow CORS
@@ -57,9 +57,10 @@ export class UserInfoService {
 
   testBackend() {
     console.log('testBackend');
-    this.http.get('/api/test').subscribe((response: any) => {
-      console.log(response.message);
-    });
+    this.http.get('https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/api/test?name=connor')
+      .subscribe((response: any) => {
+        console.log(response.message);
+      });
   }
 
 
