@@ -115,17 +115,22 @@ Follow these steps to configure your API Gateway:
     - Name your API.
     - Select `Regional` for the endpoint type.
 
-3. After creating the API, you can create resources that will be linked to different url paths. Each path can be linked to a different lambda function.
+3. After creating the API create a 'resource', think of a resource as an endpoint eg. https://api.url.com/parent/resource_name/child_resource_1/child_resource_2?parameter=hello
 
-4. Click create resource and provide a name, the path will be auto generated after this.
+4. Provide a descriptive name for the resource and enable CORS <--- VERY IMPORTANT
 
-5. Make sure your new resource is selected and click `Create method` and select `ANY` for the method type. This allows the handler function in `main.go` to handle different types of requests:
-    - Enable `Lambda Proxy Integration`.
-    - Select the Lambda function that you want to assign to this method.
-    - Enable `Default Timeout`.
+5. On the resource tab, click the resource you just created and select `Create method`
+ - Choose an appropriate method type (choose `any` if unsure)
+ - Choose Lambda as the integration type
+ - Enable `Lambda Proxy Integration`.
+ - Select the Lambda function that you want to assign to this method.
+ - Enable `Default Timeout`.
+ - Click save/create method
 
-6. Deploy the API.
+6. To activate the changes you need to deploy the API
+    - select or create the `qa` stage to test changes to the api and deploy the changes
+    - if the changes are working correctly you can deploy to the `prod` stage
 
-7. Use the provided Invoke URL to activate the function.
+
 
 
