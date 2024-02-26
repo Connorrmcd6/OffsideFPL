@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { UserInfo, UserInfoResponse } from './user-info';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -57,7 +57,13 @@ export class UserInfoService {
 
   testBackend() {
     console.log('testBackend');
-    this.http.get('https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/api/test?name=connor')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Amz-Date': new Date().toISOString(),
+    });
+
+    this.http.get('https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/test?name=connor', { headers })
       .subscribe((response: any) => {
         console.log(response.message);
       });
@@ -65,3 +71,6 @@ export class UserInfoService {
 
 
 }
+
+
+
