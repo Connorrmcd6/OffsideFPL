@@ -65,7 +65,7 @@ export class UserInfoService {
 
     this.http.get('https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/test?name=connor', { headers })
       .subscribe((response: any) => {
-        console.log(response.message);
+        console.log(response);
       });
   }
 
