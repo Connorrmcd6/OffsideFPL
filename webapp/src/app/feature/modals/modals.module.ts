@@ -10,11 +10,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { FplDeatilsInputDialogComponent } from './fpl-deatils-input-dialog/fpl-deatils-input-dialog.component';
 import { InstallPwaAlertComponent } from './install-pwa-alert/install-pwa-alert.component';
+import { CreateLeagueComponent } from './create-league/create-league.component';
+import { JoinLeagueComponent } from './join-league/join-league.component';
 
 @NgModule({
   declarations: [
     FplDeatilsInputDialogComponent,
-    InstallPwaAlertComponent],
+    InstallPwaAlertComponent,
+    CreateLeagueComponent,
+    JoinLeagueComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,

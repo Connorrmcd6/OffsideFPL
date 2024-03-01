@@ -51,10 +51,10 @@
                     </div>
 
                     <div class="create-buttons">
-                        <button mat-stroked-button color="primary"><mat-icon
+                        <button mat-stroked-button color="primary" (click)="openCreateLeagueDialog()"><mat-icon
                                 colour="primary">add_circle_outline</mat-icon>Create League</button>
                         <button mat-raised-button color="primary"
-                            (click)="userInfoService.testBackend()"><mat-icon>group_add</mat-icon>Join League</button>
+                            (click)="openJoinLeagueDialog()"><mat-icon>group_add</mat-icon>Join League</button>
                     </div>
                 </mat-card-content>
             </mat-card>
