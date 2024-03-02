@@ -6,7 +6,35 @@
                 <mat-icon>close</mat-icon>
             </button>
         </header>
+        <main class="dialog-content">
+            <form [formGroup]="leagueForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>League Name</mat-label>
+                    <input matInput placeholder="League Name" type="text" formControlName="leagueName"
+                        aria-label="Enter your League Name">
+                    <mat-icon color="primary" matSuffix>people_outline</mat-icon>
+                    <mat-error *ngIf="leagueForm.get('leagueName')?.invalid && leagueForm.get('leagueName')?.touched">
+                        League name is required
+                    </mat-error>
+                </mat-form-field>
 
-        <p>Create a new league</p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Game Mode</mat-label>
+                    <mat-select placeholder="Game Mode" formControlName="gameMode" aria-label="Select game mode">
+                        <mat-option value="option1">AntiFPL</mat-option>
+                        <mat-option value="option2">Mystery Ball</mat-option>
+                        <mat-option value="option3">YNDA</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="leagueForm.get('gameMode')?.invalid && leagueForm.get('gameMode')?.touched">
+                        Game mode is required
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="button-row">
+                    <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
+                        aria-label="Create League">Create League</button>
+                </div>
+            </form>
+        </main>
     </div>
 </mat-dialog-actions>
