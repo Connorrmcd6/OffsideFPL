@@ -6,8 +6,23 @@
                 <mat-icon>close</mat-icon>
             </button>
         </header>
+        <main class="dialog-content">
+            <form [formGroup]="leagueForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>League Code</mat-label>
+                    <input matInput placeholder="League Code" type="text" formControlName="leagueCode"
+                        aria-label="Enter your League Code">
+                    <mat-icon color="primary" matSuffix>text_fields</mat-icon>
+                    <mat-error *ngIf="leagueForm.get('leagueCode')?.invalid && leagueForm.get('leagueCode')?.touched">
+                        League Code is required
+                    </mat-error>
+                </mat-form-field>
 
-        <p>join a new league</p>
-
+                <div class="button-row">
+                    <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
+                        aria-label="Create League">Join League</button>
+                </div>
+            </form>
+        </main>
     </div>
 </mat-dialog-actions>
