@@ -30,6 +30,18 @@
                     </mat-error>
                 </mat-form-field>
 
+                <mat-form-field appearance="outline">
+                    <mat-label>Privacy Settings</mat-label>
+                    <mat-select placeholder="Privacy" formControlName="privacy" aria-label="Select Privacy Settings">
+                        <mat-option value="option1">Private, Admin approves new entries</mat-option>
+                        <mat-option value="option2">Public, Anyone can join</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="leagueForm.get('privacy')?.invalid && leagueForm.get('privacy')?.touched">
+                        privacey setting is required
+                    </mat-error>
+                </mat-form-field>
+
+
                 <div class="button-row">
                     <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
                         aria-label="Create League">Create League</button>
