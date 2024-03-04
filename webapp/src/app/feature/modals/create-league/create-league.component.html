@@ -30,6 +30,21 @@
                     </mat-error>
                 </mat-form-field>
 
+                <div class='ynda-configs' *ngIf="leagueForm.get('gameMode')?.value === 'option3'">
+                    <mat-label>Drink Allocations</mat-label>
+                    <mat-checkbox formControlName="check1">Drink for coming last</mat-checkbox>
+                    <mat-checkbox formControlName="check2">Drink for red cards</mat-checkbox>
+                    <mat-checkbox formControlName="check3">Drink for missed penalties</mat-checkbox>
+                    <mat-checkbox formControlName="check3">Drink for own goals</mat-checkbox>
+
+
+                    <mat-label>Other Settings</mat-label>
+                    <mat-checkbox formControlName="check1">Enable Random Nominations</mat-checkbox>
+                    <mat-checkbox formControlName="check2">Enable Uno Reverse Cards</mat-checkbox>
+                    <mat-checkbox formControlName="check3">Drink for missed penalties</mat-checkbox>
+                    <mat-checkbox formControlName="check3">Drink for own goals</mat-checkbox>
+                </div>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Privacy Settings</mat-label>
                     <mat-select placeholder="Privacy" formControlName="privacy" aria-label="Select Privacy Settings">
@@ -37,7 +52,7 @@
                         <mat-option value="option2">Public, Anyone can join</mat-option>
                     </mat-select>
                     <mat-error *ngIf="leagueForm.get('privacy')?.invalid && leagueForm.get('privacy')?.touched">
-                        privacey setting is required
+                        Privacy setting is required
                     </mat-error>
                 </mat-form-field>
 

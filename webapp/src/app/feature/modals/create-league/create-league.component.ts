@@ -10,7 +10,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class CreateLeagueComponent implements OnInit {
   leagueForm = this.fb.group({
     leagueName: ['', Validators.required],
-    gameMode: ['', Validators.required]
+    gameMode: ['', Validators.required],
+    check1: [false],
+    check2: [false],
+    check3: [false]
   });
 
   constructor(private fb: FormBuilder) { }
