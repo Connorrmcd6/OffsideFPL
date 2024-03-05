@@ -7,12 +7,15 @@
             </button>
         </header>
         <main class="dialog-content">
+            <section class="section-header">
+                <p>Leage Setup</p>
+            </section>
             <form [formGroup]="leagueForm">
                 <mat-form-field appearance="outline">
                     <mat-label>League Name</mat-label>
                     <input matInput placeholder="League Name" type="text" formControlName="leagueName"
                         aria-label="Enter your League Name">
-                    <mat-icon color="primary" matSuffix>people_outline</mat-icon>
+                    <!-- <mat-icon color="primary" matSuffix>people_outline</mat-icon> -->
                     <mat-error *ngIf="leagueForm.get('leagueName')?.invalid && leagueForm.get('leagueName')?.touched">
                         League name is required
                     </mat-error>
@@ -48,8 +51,8 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Privacy Settings</mat-label>
                     <mat-select placeholder="Privacy" formControlName="privacy" aria-label="Select Privacy Settings">
-                        <mat-option value="option1">Private, Admin approves new entries</mat-option>
-                        <mat-option value="option2">Public, Anyone can join</mat-option>
+                        <mat-option value="option1">Private, admin approves new entries</mat-option>
+                        <mat-option value="option2">Public, anyone can join</mat-option>
                     </mat-select>
                     <mat-error *ngIf="leagueForm.get('privacy')?.invalid && leagueForm.get('privacy')?.touched">
                         Privacy setting is required
