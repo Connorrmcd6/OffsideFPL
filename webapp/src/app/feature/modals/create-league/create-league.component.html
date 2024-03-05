@@ -13,7 +13,7 @@
             <form [formGroup]="leagueForm">
                 <mat-form-field appearance="outline">
                     <mat-label>League Name</mat-label>
-                    <input matInput placeholder="League Name" type="text" formControlName="leagueName"
+                    <input matInput placeholder="League Name" type="text" formControlName="leagueName" #leagueName
                         aria-label="Enter your League Name">
                     <!-- <mat-icon color="primary" matSuffix>people_outline</mat-icon> -->
                     <mat-error *ngIf="leagueForm.get('leagueName')?.invalid && leagueForm.get('leagueName')?.touched">
@@ -23,17 +23,18 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Game Mode</mat-label>
-                    <mat-select placeholder="Game Mode" formControlName="gameMode" aria-label="Select game mode">
-                        <mat-option value="option1">AntiFPL</mat-option>
-                        <mat-option value="option2">Mystery Ball</mat-option>
-                        <mat-option value="option3">YNDA</mat-option>
+                    <mat-select placeholder="Game Mode" formControlName="leagueMode" aria-label="Select game mode"
+                        #leagueMode>
+                        <mat-option value="antifpl">AntiFPL</mat-option>
+                        <mat-option value="mystery">Mystery Ball</mat-option>
+                        <mat-option value="ynda">YNDA</mat-option>
                     </mat-select>
-                    <mat-error *ngIf="leagueForm.get('gameMode')?.invalid && leagueForm.get('gameMode')?.touched">
+                    <mat-error *ngIf="leagueForm.get('leagueMode')?.invalid && leagueForm.get('leagueMode')?.touched">
                         Game mode is required
                     </mat-error>
                 </mat-form-field>
 
-                <div class='ynda-configs' *ngIf="leagueForm.get('gameMode')?.value === 'option3'">
+                <!-- <div class='ynda-configs' *ngIf="leagueForm.get('gameMode')?.value === 'option3'">
                     <mat-label>Drink Allocations</mat-label>
                     <mat-checkbox formControlName="check1">Drink for coming last</mat-checkbox>
                     <mat-checkbox formControlName="check2">Drink for red cards</mat-checkbox>
@@ -46,15 +47,17 @@
                     <mat-checkbox formControlName="check2">Enable Uno Reverse Cards</mat-checkbox>
                     <mat-checkbox formControlName="check3">Drink for missed penalties</mat-checkbox>
                     <mat-checkbox formControlName="check3">Drink for own goals</mat-checkbox>
-                </div>
+                </div> -->
 
                 <mat-form-field appearance="outline">
                     <mat-label>Privacy Settings</mat-label>
-                    <mat-select placeholder="Privacy" formControlName="privacy" aria-label="Select Privacy Settings">
-                        <mat-option value="option1">Private, admin approves new entries</mat-option>
-                        <mat-option value="option2">Public, anyone can join</mat-option>
+                    <mat-select placeholder="Privacy" formControlName="leaguePrivacy"
+                        aria-label="Select Privacy Settings" #leaguePrivacy>
+                        <mat-option value="private">Private, admin approves new entries</mat-option>
+                        <mat-option value="public">Public, anyone can join</mat-option>
                     </mat-select>
-                    <mat-error *ngIf="leagueForm.get('privacy')?.invalid && leagueForm.get('privacy')?.touched">
+                    <mat-error
+                        *ngIf="leagueForm.get('leaguePrivacy')?.invalid && leagueForm.get('leaguePrivacy')?.touched">
                         Privacy setting is required
                     </mat-error>
                 </mat-form-field>
@@ -62,6 +65,7 @@
 
                 <div class="button-row">
                     <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
+                        (click)="leagueService.generateLeague(leagueName.value, leagueMode.value, leaguePrivacy.value)"
                         aria-label="Create League">Create League</button>
                 </div>
             </form>
