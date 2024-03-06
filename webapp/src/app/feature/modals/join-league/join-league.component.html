@@ -10,7 +10,7 @@
             <form [formGroup]="leagueForm">
                 <mat-form-field appearance="outline">
                     <mat-label>League Code</mat-label>
-                    <input matInput placeholder="League Code" type="text" formControlName="leagueCode"
+                    <input matInput placeholder="League Code" type="text" formControlName="leagueCode" #leagueCode
                         aria-label="Enter your League Code">
                     <mat-icon color="primary" matSuffix>text_fields</mat-icon>
                     <mat-error *ngIf="leagueForm.get('leagueCode')?.invalid && leagueForm.get('leagueCode')?.touched">
@@ -20,6 +20,7 @@
 
                 <div class="button-row">
                     <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
+                        (click)="leagueService.addUserLeague(leagueService.userInfoData.uid, leagueCode.value)"
                         aria-label="Create League">Join League</button>
                 </div>
             </form>

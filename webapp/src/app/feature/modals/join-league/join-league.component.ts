@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LeagueService } from 'src/app/shared/services/league.service';
 
 @Component({
   selector: 'app-join-league',
@@ -8,11 +9,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class JoinLeagueComponent {
   leagueForm = this.fb.group({
-    leagueName: ['', Validators.required],
-    gameMode: ['', Validators.required]
+    leagueCode: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    public leagueService: LeagueService) { }
 
   ngOnInit(): void {
   }
