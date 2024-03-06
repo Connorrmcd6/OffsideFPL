@@ -9,7 +9,7 @@ import { LeagueService } from 'src/app/shared/services/league.service';
   styleUrl: './create-league.component.scss'
 })
 export class CreateLeagueComponent implements OnInit {
-  leagueForm = this.fb.group({
+  createLeagueForm = this.fb.group({
     leagueName: ['', Validators.required],
     leagueMode: ['', Validators.required],
     leaguePrivacy: ['', Validators.required],

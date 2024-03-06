@@ -49,13 +49,13 @@ export class LeagueService {
     const leagueDoc = await this.afs.collection('leagues').doc(upperCaseLeagueId).get().toPromise();
     if (!leagueDoc?.exists) {
       console.error('Error: League ID does not exist');
-      throw new Error('League ID does not exist');
+      throw new Error('League does not exist');
     }
 
     const snapshot = await firstValueFrom(this.afs.collection('user-leagues', ref => ref.where('uid', '==', userId).where('league_id', '==', upperCaseLeagueId)).get());
     if (!snapshot?.empty) {
       console.error('Error: user-league data already exists');
-      throw new Error('User-league data already exists');
+      throw new Error('You have already joined this league.');
     }
 
     try {

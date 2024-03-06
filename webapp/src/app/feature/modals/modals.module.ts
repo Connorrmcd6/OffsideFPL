@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FplDeatilsInputDialogComponent } from './fpl-deatils-input-dialog/fpl-deatils-input-dialog.component';
 import { InstallPwaAlertComponent } from './install-pwa-alert/install-pwa-alert.component';
@@ -30,6 +31,7 @@ import { JoinLeagueComponent } from './join-league/join-league.component';
     MatButtonModule,
     MatExpansionModule,
     MatDialogModule,
+    MatSnackBarModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatCheckboxModule

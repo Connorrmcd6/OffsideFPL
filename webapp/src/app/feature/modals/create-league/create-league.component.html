@@ -10,13 +10,14 @@
             <section class="section-header">
                 <p>Leage Setup</p>
             </section>
-            <form [formGroup]="leagueForm">
+            <form [formGroup]="createLeagueForm">
                 <mat-form-field appearance="outline">
                     <mat-label>League Name</mat-label>
                     <input matInput placeholder="League Name" type="text" formControlName="leagueName" #leagueName
                         aria-label="Enter your League Name">
                     <!-- <mat-icon color="primary" matSuffix>people_outline</mat-icon> -->
-                    <mat-error *ngIf="leagueForm.get('leagueName')?.invalid && leagueForm.get('leagueName')?.touched">
+                    <mat-error
+                        *ngIf="createLeagueForm.get('leagueName')?.invalid && createLeagueForm.get('leagueName')?.touched">
                         League name is required
                     </mat-error>
                 </mat-form-field>
@@ -29,12 +30,13 @@
                         <mat-option value="mystery">Mystery Ball</mat-option>
                         <mat-option value="ynda">YNDA</mat-option>
                     </mat-select>
-                    <mat-error *ngIf="leagueForm.get('leagueMode')?.invalid && leagueForm.get('leagueMode')?.touched">
+                    <mat-error
+                        *ngIf="createLeagueForm.get('leagueMode')?.invalid && createLeagueForm.get('leagueMode')?.touched">
                         Game mode is required
                     </mat-error>
                 </mat-form-field>
 
-                <!-- <div class='ynda-configs' *ngIf="leagueForm.get('gameMode')?.value === 'option3'">
+                <!-- <div class='ynda-configs' *ngIf="createLeagueForm.get('gameMode')?.value === 'option3'">
                     <mat-label>Drink Allocations</mat-label>
                     <mat-checkbox formControlName="check1">Drink for coming last</mat-checkbox>
                     <mat-checkbox formControlName="check2">Drink for red cards</mat-checkbox>
@@ -57,14 +59,14 @@
                         <mat-option value="public">Public, anyone can join</mat-option>
                     </mat-select>
                     <mat-error
-                        *ngIf="leagueForm.get('leaguePrivacy')?.invalid && leagueForm.get('leaguePrivacy')?.touched">
+                        *ngIf="createLeagueForm.get('leaguePrivacy')?.invalid && createLeagueForm.get('leaguePrivacy')?.touched">
                         Privacy setting is required
                     </mat-error>
                 </mat-form-field>
 
 
                 <div class="button-row">
-                    <button mat-raised-button type="button" color="primary" [disabled]="leagueForm.invalid"
+                    <button mat-raised-button type="button" color="primary" [disabled]="createLeagueForm.invalid"
                         (click)="leagueService.createAndJoinLeague(leagueName.value, leagueMode.value, leaguePrivacy.value, leagueService.userInfoData.uid)"
                         aria-label="Create League">Create League</button>
                 </div>
