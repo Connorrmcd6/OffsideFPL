@@ -20,14 +20,13 @@ export interface UserInfoResponse {
 
 
 export interface LeagueData {
-    name: string;
+    leagueName: string;
     rank: number;
-    mode: string;
+    leagueMode: string;
 }
 
 export interface UserLeague {
     code: string;
-    leagueName: string;
-    leagueMode: string;
+    rank: number;
 }
 

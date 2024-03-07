@@ -103,7 +103,8 @@ export class LeagueService {
     return result;
   }
 
-  async fetchUserLeaguesArray(): Promise<string[]> {
+  // this function fetches league codes and current ranks for the logged in user from the user-leagues collection
+  async fetchUserLeaguesArray(): Promise<{ code: string, rank: number }[]> {
     const userID = this.userInfoData?.uid;
     if (!userID) {
       throw new Error('User ID is undefined');
@@ -112,28 +113,29 @@ export class LeagueService {
     try {
       const snapshot = await firstValueFrom(this.afs.collection('user-leagues', ref => ref.where('uid', '==', userID)).get());
 
-      const leagueCodes: string[] = [];
+      const leagueData: { code: string, rank: number }[] = [];
 
       snapshot.forEach(doc => {
         const data = doc.data() as UserLeague;
-        if (data.code) {
-          leagueCodes.push(data.code);
+        if (data.code && typeof data.rank === 'number') {
+          leagueData.push({ code: data.code, rank: data.rank });
         }
       });
-
-      return leagueCodes;
+      // console.log(leagueData);
+      return leagueData;
     } catch (error) {
       console.error('Error fetching user leagues array:', error);
       throw error;
     }
   }
 
+  // this function takes the league codes provided by fetchUserLeaguesArray and fetches the league name and mode from the leagues collection
   async fetchUserLeagues(): Promise<LeagueData[]> {
     try {
       const userLeagueCodes = await this.fetchUserLeaguesArray();
 
       const leaguePromises = userLeagueCodes.map(userLeague =>
-        firstValueFrom(this.afs.collection('leagues').doc(userLeague).get())
+        firstValueFrom(this.afs.collection('leagues').doc(userLeague.code).get())
       );
 
       const leagueDocs = await Promise.all(leaguePromises);
@@ -141,11 +143,15 @@ export class LeagueService {
       const LEAGUE_DATA: LeagueData[] = leagueDocs
         .filter(leagueDoc => leagueDoc.exists)
         .map(leagueDoc => {
-          const data = leagueDoc.data();
+          const data = leagueDoc.data() as { leagueName: string, leagueMode: string }; // Update the type of 'data' variable
           if (!data) {
             throw new Error(`No data for league document ${leagueDoc.id}`);
           }
-          return data as LeagueData;
+          return {
+            leagueName: data.leagueName, // Update property name from 'name' to 'leagueName'
+            rank: userLeagueCodes.find(ul => ul.code === leagueDoc.id)?.rank || 0,
+            leagueMode: data.leagueMode, // Update property name from 'mode' to 'leagueMode'
+          } as LeagueData;
         });
       console.log(LEAGUE_DATA);
       return LEAGUE_DATA;
