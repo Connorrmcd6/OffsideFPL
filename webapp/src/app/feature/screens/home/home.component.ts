@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -11,17 +11,11 @@ import { LeagueService } from 'src/app/shared/services/league.service';
 
 
 
-export interface League {
-  name: string;
+export interface LeagueData {
+  leagueName: string;
   rank: number;
-  mode: string;
+  leagueMode: string;
 }
-
-const LEAGUE_DATA: League[] = [
-  { rank: 1, name: 'YNDA', mode: 'YNDA' },
-  { rank: 2, name: 'Luno', mode: 'Mystery Ball' },
-  { rank: 1, name: 'OQLIS', mode: 'AntiFPL' },
-];
 
 @Component({
   selector: 'app-home',
@@ -62,7 +56,14 @@ export class HomeComponent {
   }
 
 
-  displayedColumns: string[] = ['name', 'rank', 'mode'];
-  dataSource = LEAGUE_DATA;
+  displayedColumns: string[] = ['leagueName', 'rank', 'leagueMode'];
+  dataSource: LeagueData[] = [];
 
+  async ngOnInit() {
+    try {
+      this.dataSource = await this.leagueService.fetchUserLeagues();
+    } catch (error) {
+      console.error('Error fetching user leagues:', error);
+    }
+  }
 }
