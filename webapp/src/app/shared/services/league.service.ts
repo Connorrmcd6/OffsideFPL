@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { UserInfo } from './user-info';
+import { UserInfo, LeagueData, UserLeague } from './user-info';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { firstValueFrom } from 'rxjs';
 
@@ -41,9 +41,13 @@ export class LeagueService {
     }
 
     const upperCaseLeagueId = leagueId.toUpperCase();
+    const now = new Date().toISOString();
     const userLeagueData = {
       uid: userId,
-      league_id: upperCaseLeagueId
+      code: upperCaseLeagueId,
+      rank: 0, // default rank
+      joinedAt: now, // joined at timestamp
+      updatedAt: now // updated at timestamp
     };
 
     const leagueDoc = await this.afs.collection('leagues').doc(upperCaseLeagueId).get().toPromise();
@@ -52,7 +56,7 @@ export class LeagueService {
       throw new Error('League does not exist');
     }
 
-    const snapshot = await firstValueFrom(this.afs.collection('user-leagues', ref => ref.where('uid', '==', userId).where('league_id', '==', upperCaseLeagueId)).get());
+    const snapshot = await firstValueFrom(this.afs.collection('user-leagues', ref => ref.where('uid', '==', userId).where('code', '==', upperCaseLeagueId)).get());
     if (!snapshot?.empty) {
       console.error('Error: user-league data already exists');
       throw new Error('You have already joined this league.');
@@ -74,6 +78,7 @@ export class LeagueService {
       leagueMode: leagueMode,
       leaguePrivacy: leaguePrivacy,
       code: this.generateId(6),
+      createdAt: new Date().toISOString(),
     };
   }
 
@@ -96,5 +101,57 @@ export class LeagueService {
       result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return result;
+  }
+
+  async fetchUserLeaguesArray(): Promise<string[]> {
+    const userID = this.userInfoData?.uid;
+    if (!userID) {
+      throw new Error('User ID is undefined');
+    }
+
+    try {
+      const snapshot = await firstValueFrom(this.afs.collection('user-leagues', ref => ref.where('uid', '==', userID)).get());
+
+      const leagueCodes: string[] = [];
+
+      snapshot.forEach(doc => {
+        const data = doc.data() as UserLeague;
+        if (data.code) {
+          leagueCodes.push(data.code);
+        }
+      });
+
+      return leagueCodes;
+    } catch (error) {
+      console.error('Error fetching user leagues array:', error);
+      throw error;
+    }
+  }
+
+  async fetchUserLeagues(): Promise<LeagueData[]> {
+    try {
+      const userLeagueCodes = await this.fetchUserLeaguesArray();
+
+      const leaguePromises = userLeagueCodes.map(userLeague =>
+        firstValueFrom(this.afs.collection('leagues').doc(userLeague).get())
+      );
+
+      const leagueDocs = await Promise.all(leaguePromises);
+
+      const LEAGUE_DATA: LeagueData[] = leagueDocs
+        .filter(leagueDoc => leagueDoc.exists)
+        .map(leagueDoc => {
+          const data = leagueDoc.data();
+          if (!data) {
+            throw new Error(`No data for league document ${leagueDoc.id}`);
+          }
+          return data as LeagueData;
+        });
+      console.log(LEAGUE_DATA);
+      return LEAGUE_DATA;
+    } catch (error) {
+      console.error('Error fetching user leagues:', error);
+      throw error;
+    }
   }
 }

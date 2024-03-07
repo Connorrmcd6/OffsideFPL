@@ -17,3 +17,17 @@ export interface UserInfoResponse {
     player_name?: string;
     player_region_name?: string;
 }
+
+
+export interface LeagueData {
+    name: string;
+    rank: number;
+    mode: string;
+}
+
+export interface UserLeague {
+    code: string;
+    leagueName: string;
+    leagueMode: string;
+}
+

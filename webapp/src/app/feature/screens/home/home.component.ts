@@ -7,6 +7,7 @@ import { CreateLeagueComponent } from '../../modals/create-league/create-league.
 import { JoinLeagueComponent } from '../../modals/join-league/join-league.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { LeagueService } from 'src/app/shared/services/league.service';
 
 
 
@@ -33,7 +34,8 @@ export class HomeComponent {
     private location: Location,
     public authService: AuthService,
     private matDialog: MatDialog,
-    public userInfoService: UserInfoService
+    public userInfoService: UserInfoService,
+    public leagueService: LeagueService
   ) { }
 
 
