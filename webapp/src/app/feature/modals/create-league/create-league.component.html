@@ -26,9 +26,9 @@
                     <mat-label>Game Mode</mat-label>
                     <mat-select placeholder="Game Mode" formControlName="leagueMode" aria-label="Select game mode"
                         #leagueMode>
-                        <mat-option value="antifpl">AntiFPL</mat-option>
-                        <mat-option value="mystery">Mystery Ball</mat-option>
-                        <mat-option value="ynda">YNDA</mat-option>
+                        <mat-option value="AntiFPL">AntiFPL</mat-option>
+                        <mat-option value="Mystery Ball">Mystery Ball</mat-option>
+                        <mat-option value="YNDA">YNDA</mat-option>
                     </mat-select>
                     <mat-error
                         *ngIf="createLeagueForm.get('leagueMode')?.invalid && createLeagueForm.get('leagueMode')?.touched">
