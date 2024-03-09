@@ -1,26 +1,30 @@
 import { Component } from '@angular/core';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserInfoResponse } from 'src/app/shared/services/user-info';
 
 @Component({
   selector: 'app-fpl-deatils-input-dialog',
   templateUrl: './fpl-deatils-input-dialog.component.html',
-  styleUrl: './fpl-deatils-input-dialog.component.scss'
+  styleUrls: ['./fpl-deatils-input-dialog.component.scss']
 })
 export class FplDeatilsInputDialogComponent {
-  panelOpenState = false;
   confirmationOpenState = false;
-  teamID: string = ''; // Initialize the teamID property
+  panelOpenState = false;
+  tempUserInfo: UserInfoResponse | undefined; // Use the UserInfoResponse model
 
   constructor(
-    public userInfoService: UserInfoService
+    public userInfoService: UserInfoService,
   ) { }
 
-  async findTeam() {
+  async findUser(teamID: string) {
     try {
-      await this.userInfoService.fetchUserInfo(this.teamID); // Use the teamID property
-      this.confirmationOpenState = true;
+      this.tempUserInfo = await this.userInfoService.fetchUserInfo(teamID);
+      console.log(this.tempUserInfo); // Log the value to verify it's been assigned correctly
     } catch (error) {
       console.error('Error fetching user info:', error);
     }
+
+    return this.tempUserInfo;
   }
+
 }

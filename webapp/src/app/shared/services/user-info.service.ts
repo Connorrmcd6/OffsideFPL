@@ -20,7 +20,7 @@ export class UserInfoService {
 
   // requests data from the go handler that requests from the public fpl api based on the team ID specified by the user
   // data is then stored in the session storage
-  async fetchUserInfo(teamID: string): Promise<void> {
+  async fetchUserInfo(teamID: string): Promise<UserInfoResponse> {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,30 +29,27 @@ export class UserInfoService {
 
 
     const baseUrl = `https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/user-info?team_id=${teamID}`;
-    let data; // Declare the 'data' variable
+    let data: UserInfoResponse = {}; // Declare the 'data' variable
     this.http
       .get(baseUrl, { headers }) // Add headers to allow CORS
       .subscribe((responseData: UserInfoResponse) => {
         data = responseData; // Assign the value to 'data'
         console.log(data);
-        this.userInfoData.teamName = data?.name;
-        this.userInfoData.teamID = data?.id;
-        this.userInfoData.playerFirstName = data?.player_first_name;
-        this.userInfoData.playerLastName = data?.player_last_name;
-        this.userInfoData.playerName = data?.player_name;
-        this.userInfoData.playerRegion = data?.player_region_name;
-
-        // // Store data in local storage
-        localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
-
       });
 
     return data;
   }
 
+  setUserInfoData() {
+    if (this.userInfoData) {
+      localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
+    }
+  }
 
 
   updateUserInfo(userInfo: UserInfo) {
+    this.setUserInfoData(); // set the userInfoData to the local storage
+
     const userInfoRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${userInfo.uid}`);
 
     return userInfoRef.set(userInfo, { merge: true })

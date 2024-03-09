@@ -21,7 +21,8 @@
 
         <!-- Button to find team -->
         <div class="button-row">
-          <button mat-raised-button type="button" color="primary" aria-label="Find Team" (click)="findTeam()">Find
+          <button mat-raised-button type="button" color="primary" aria-label="Find Team"
+            (click)="findUser(teamID.value)">Find
             Team</button>
         </div>
 
@@ -37,12 +38,8 @@
                 <mat-icon>close</mat-icon>
               </button>
             </div>
-
-            <p><strong>Team:</strong> {{ userInfoService.userInfoData.teamName ? userInfoService.userInfoData.teamName
-              :'Not set' }}</p>
-            <p><strong>Name:</strong> {{ userInfoService.userInfoData.playerName ?
-              userInfoService.userInfoData.playerName : 'Not set' }}
-            </p>
+            <p><strong>Team:</strong> {{ tempUserInfo?.name ? tempUserInfo?.name : 'Not set' }}</p>
+            <p><strong>Name:</strong> {{ tempUserInfo?.player_name ? tempUserInfo?.player_name : 'Not set' }}</p>
           </div>
 
           <div class="details-buttons">
