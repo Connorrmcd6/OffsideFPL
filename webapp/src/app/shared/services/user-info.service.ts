@@ -21,23 +21,16 @@ export class UserInfoService {
   // requests data from the go handler that requests from the public fpl api based on the team ID specified by the user
   // data is then stored in the session storage
   async fetchUserInfo(teamID: string): Promise<UserInfoResponse> {
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'X-Amz-Date': new Date().toISOString(),
     });
 
-
     const baseUrl = `https://uwaxlajf1b.execute-api.eu-north-1.amazonaws.com/qa/user-info?team_id=${teamID}`;
-    let data: UserInfoResponse = {}; // Declare the 'data' variable
-    this.http
-      .get(baseUrl, { headers }) // Add headers to allow CORS
-      .subscribe((responseData: UserInfoResponse) => {
-        data = responseData; // Assign the value to 'data'
-        console.log(data);
-      });
 
-    return data;
+    const data = await this.http.get<UserInfoResponse>(baseUrl, { headers }).toPromise();
+
+    return data as UserInfoResponse;
   }
 
   setUserInfoData() {

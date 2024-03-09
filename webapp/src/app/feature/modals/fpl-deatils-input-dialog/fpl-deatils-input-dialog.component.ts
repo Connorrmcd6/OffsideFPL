@@ -19,12 +19,10 @@ export class FplDeatilsInputDialogComponent {
   async findUser(teamID: string) {
     try {
       this.tempUserInfo = await this.userInfoService.fetchUserInfo(teamID);
-      console.log(this.tempUserInfo); // Log the value to verify it's been assigned correctly
+      this.confirmationOpenState = true;
     } catch (error) {
       console.error('Error fetching user info:', error);
     }
-
-    return this.tempUserInfo;
   }
 
 }
