@@ -33,15 +33,19 @@ export class UserInfoService {
     return data as UserInfoResponse;
   }
 
-  setUserInfoData() {
-    if (this.userInfoData) {
-      localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
-    }
-  }
 
+  async updateUserInfo(userInfo: UserInfo, tempUserInfo: UserInfoResponse | undefined) {
 
-  updateUserInfo(userInfo: UserInfo) {
-    this.setUserInfoData(); // set the userInfoData to the local storage
+    this.userInfoData.teamName = tempUserInfo?.name;
+    this.userInfoData.teamID = tempUserInfo?.id;
+    this.userInfoData.playerFirstName = tempUserInfo?.player_first_name;
+    this.userInfoData.playerLastName = tempUserInfo?.player_last_name;
+    this.userInfoData.playerName = tempUserInfo?.player_name;
+    this.userInfoData.playerRegion = tempUserInfo?.player_region_name;
+
+    // Store data in local storage
+    localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
+
 
     const userInfoRef: AngularFirestoreDocument<UserInfo> = this.afs.doc(`user-info/${userInfo.uid}`);
 
@@ -50,7 +54,11 @@ export class UserInfoService {
         console.error('Error updating user info: ', error);
         throw error;
       });
+
   }
+
+
+
 
   testBackend() {
     console.log('testBackend');
