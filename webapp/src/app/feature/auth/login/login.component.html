@@ -1,11 +1,10 @@
-<!-- FILEPATH: /Users/connormcdonald/Desktop/GitHub/OffsideFPL/webapp/src/app/feature/auth/login/login.component.html -->
 <div class="login-container">
     <div class="login-card-content">
         <mat-card>
             <!-- Navigation bar with a back button -->
             <nav>
-                <button  mat-icon-button colour="primary" (click)="goBack()">
-                  <mat-icon>arrow_back</mat-icon>
+                <button mat-icon-button colour="primary" (click)="goBack()">
+                    <mat-icon>arrow_back</mat-icon>
                 </button>
             </nav>
             <div class="logo-welcome-container">
@@ -24,14 +23,19 @@
                 <!-- Password input field -->
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" #userPassword required (keyup.enter)="authService.SignIn(userEmail.value, userPassword.value)">
-                    <button color="primary" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <input matInput [type]="hide ? 'password' : 'text'" #userPassword required
+                        (keyup.enter)="authService.SignIn(userEmail.value, userPassword.value)">
+                    <button color="primary" mat-icon-button matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
+                <!-- Error message -->
+                <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
                 <div class="button-row">
                     <!-- Login button -->
-                    <button mat-raised-button color="primary" (click)="authService.SignIn(userEmail.value, userPassword.value)">Login</button>
+                    <button mat-raised-button color="primary"
+                        (click)="signIn(userEmail.value, userPassword.value)">Login</button>
                 </div>
             </mat-card-content>
             <div class="bottom-content">

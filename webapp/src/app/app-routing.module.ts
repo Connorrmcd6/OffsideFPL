@@ -10,7 +10,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent, data: { hideHeader: true } },
+  // { path: 'landing', component: LandingComponent, data: { hideHeader: true } },
   { path: 'login', component: LoginComponent, data: { hideHeader: true } },
   { path: 'register', component: RegisterComponent, data: { hideHeader: true } },
   { path: 'forgot-password', component: ForgotPasswordComponent, data: { hideHeader: true } },

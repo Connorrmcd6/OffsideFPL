@@ -52,7 +52,15 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        let errorMessage;
+        switch (error.code) {
+          case 'auth/invalid-email':
+            errorMessage = "The email or password is incorrect, if you don't have an account, please sign up.";
+            break;
+          default:
+            errorMessage = error.message;
+        }
+        return Promise.reject(errorMessage);
       });
   }
 
