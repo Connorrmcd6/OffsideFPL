@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     private location: Location,
     private formBuilder: FormBuilder,
     public authService: AuthService
-  ) {}
+  ) { }
 
   // Go back to the previous page
   goBack(): void {
@@ -42,6 +42,16 @@ export class RegisterComponent implements OnInit {
 
   isLinear = false;
 
+  errorMessage: string = '';
+  signUp(email: string, password: string): void {
+    this.authService.SignUp(email, password)
+      .then(() => {
+        // Handle successful sign up
+      })
+      .catch(errorMessage => {
+        this.errorMessage = errorMessage;
+      });
+  }
   ngOnInit() {
     // Initialization logic goes here
   }

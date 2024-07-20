@@ -29,7 +29,7 @@ export class AuthService {
           .doc(`user-info/${user.uid}`)
           .valueChanges()
           .subscribe((userInfo) => {
-            this.userInfoData = userInfo;
+            this.userInfoData = userInfo || {}; // Set userInfoData to an empty object if it is undefined;
             localStorage.setItem('userInfo', JSON.stringify(this.userInfoData));
           });
       } else {
@@ -55,10 +55,13 @@ export class AuthService {
         let errorMessage;
         switch (error.code) {
           case 'auth/invalid-email':
-            errorMessage = "The email or password is incorrect, if you don't have an account, please sign up.";
+            errorMessage = "Your email is incorrect, if you don't have an account, please sign up.";
+            break;
+          case 'auth/invalid-credential':
+            errorMessage = "Your password is incorrect, if you don't have an account, please sign up.";
             break;
           default:
-            errorMessage = error.message;
+          // errorMessage = error.message;
         }
         return Promise.reject(errorMessage);
       });
@@ -69,6 +72,7 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log(result);
         console.log('sending verification email');
         this.SendVerificationMail();
         console.log('setting user data');
@@ -76,11 +80,28 @@ export class AuthService {
         console.log('setting user info data');
         this.SetUserInfoData(result.user);
         if (result != null) {
-          console.log('user id', result.user?.uid);
+          console.log(result.user);
         }
       })
       .catch((error) => {
-        // window.alert(error.message);
+        let errorMessage;
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            errorMessage = 'The email address is already in use by another account.';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Please check if your email is correct.';
+            break;
+          case 'auth/weak-password':
+            errorMessage = 'The password is too weak.';
+            break;
+          case 'auth/missing-password':
+            errorMessage = 'Please make sure to provide a password.';
+            break;
+          default:
+          // errorMessage = error.message;
+        }
+        return Promise.reject(errorMessage);
       });
   }
 
@@ -136,8 +157,6 @@ export class AuthService {
     };
     return userInfoRef.set(userInfoData, { merge: true });
   }
-
-
 
   // Sign out
   SignOut() {
